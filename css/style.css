@@ -1,0 +1,2361 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Font Awesome for Icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+:root {
+    /* Corrected Colors */
+    --dark-bg: #0C1222;
+    --nav-bg: rgba(38, 43, 56, 0.5);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --white: #ffffff;
+    --light-gray-bg: #f0f2f5;
+    --subtle-text: #aeb9d3;
+    --button-text-dark: #1a202c;
+    --heading-dark: #1a202c;
+    --text-dark: #4a5568;
+    --orange-highlight: #F59E0B;
+    --green-status: #34D399;
+    --border-light: #e2e8f0;
+    --pricing-dark-bg: #111827;
+
+    /* Fonts */
+    --font-primary: 'Inter', sans-serif;
+
+    /* Spacing */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    --spacing-xxl: 128px;
+
+    /* Border Radius */
+    --border-radius-sm: 6px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 16px;
+    --border-radius-pill: 50px;
+}
+
+/* Base Styles & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--white);
+    background-color: var(--dark-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.section-padding {
+    padding: var(--spacing-xxl) 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+}
+h1 { font-size: 3.75rem; }
+h2 { font-size: 2.5rem; margin-bottom: var(--spacing-lg);}
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.125rem; }
+
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: left;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+}
+.btn-light {
+    background-color: var(--white);
+    color: var(--button-text-dark);
+}
+.btn-light:hover {
+    background-color: var(--light-gray-bg);
+}
+.btn-text-link {
+    background: none;
+    border: none;
+    color: var(--subtle-text);
+    padding: 10px 12px;
+}
+.btn-text-link:hover {
+    color: var(--white);
+}
+.btn-outline-light {
+    border: 1px solid var(--orange-highlight);   /* thin orange border */
+    color: #F9FAFB;
+    font-weight: 500;
+
+    /* ↓ make the button smaller (narrower) ↓ */
+    padding: 6px 8px;                           /* height, width */
+    font-size: 0.85rem;
+    border-radius: 8px;
+
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+.btn-outline-light:hover {
+    background-color: rgba(4, 7, 20, 1);
+    border-color: var(--orange-highlight);
+    filter: brightness(1.05);
+}
+.btn-dark {
+    background-color: var(--pricing-dark-bg);
+    color: var(--white);
+    border-color: var(--pricing-dark-bg);
+}
+.btn-dark:hover {
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+.btn-outline-dark {
+    background: transparent;
+    border: 1px solid #4B5563;
+    color: #D1D5DB;
+}
+.btn-outline-dark:hover {
+    background: #1F2937;
+    color: var(--white);
+}
+
+/* Header */
+.header {
+    position: absolute;          /* was fixed */
+    top: 10px;
+    left: 0px;
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+.header .logo {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+     letter-spacing: -0.03em;
+}
+.nav-container {
+    background: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: var(--border-radius-pill);
+    padding: 4px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.header .nav-menu {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+.header .nav-menu a {
+    color: var(--subtle-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-pill);
+    transition: all 0.3s ease;
+}
+.header .nav-menu a:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.header .nav-menu a.active {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.hamburger { display: none; }
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items:flex-end; 
+    justify-content: flex-start;
+
+    /* initial background (gradient + first image) */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    overflow: hidden;
+    padding-top: 90px;
+    padding-bottom: 10px;
+}
+.hero-bg-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    font-size: 16vw;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    white-space: nowrap;
+    width:100%;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 350px;
+  text-align: left;
+
+  /* override .container centering */
+  margin-left: var(--spacing-lg);
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-content h1 {
+    margin-bottom:6px;
+    font-size: 1.8rem;          /* desktop hero heading */
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    max-width: 180px;
+}
+.hero-content p,
+.hero-trust-indicators {
+    max-width: 600px;              /* wider paragraph/trust text */
+}
+.hero-content p {
+    font-size: 0.7rem;
+    font-weight: 380;
+    color: #d4d9e6;
+    max-width: 600px;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+    margin-top: 0; 
+}
+.hero-trust-indicators {
+    font-size: 0.6rem;
+    color:var(--orange-highlight);
+    margin-bottom: var(--spacing-lg);
+}
+/* === HERO PRIMARY CTA LOOK === */
+.hero .btn-outline-light {
+    border-color: var(--orange-highlight);
+    border-width: 1px;
+
+    color: #F9FAFB;
+    padding: 8px 18px;          /* width/height of the button */
+    border-radius: 10px;          /* same rounded corners as design */
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+.hero-carousel-nav {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-lg);
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-lg);
+}
+/* HERO THUMBNAIL STRIP – only 2 visible */
+.hero-thumbnails {
+    display: flex;
+    gap: 12px;
+    background-color: rgba(15, 23, 42, 0.75);
+    padding: 6px;
+    border-radius: 18px;
+
+    /* show only a window for 2 thumbnails */
+    width: 340px !important;       /* 2 * 150 + gaps + padding */
+    max-width: 340px !important;
+    overflow: hidden !important;   /* hide the rest */
+}
+
+/* each thumb has fixed width so math is consistent */
+.hero-thumbnails .thumbnail {
+    flex: 0 0 150px;               /* exactly 150px wide per thumbnail */
+}
+.hero-thumbnails .thumbnail {
+    width: 150px;
+    height: 90px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease,opacity 0.2s ease;
+    opacity: 0.7;
+}
+.hero-thumbnails .thumbnail:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+.hero-thumbnails .thumbnail.active {
+    border-color: var(--white);
+    opacity: 1;
+}
+.hero-thumbnails .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-arrows {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: 25px;
+}
+.carousel-arrow {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carousel-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* How It Works Section */
+.how-it-works {
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+.how-it-works .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+.how-it-works-image {
+    position: relative;
+    overflow: hidden;
+}
+.how-it-works-content h2 {
+    color: var(--heading-dark);
+}
+.how-it-works-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+.how-it-works-steps::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--border-light);
+}
+.how-it-works-step {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+.how-it-works-step .step-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--orange-highlight);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-right: var(--spacing-md);
+    z-index: 2;
+}
+.how-it-works-step .step-text h4 {
+    color: var(--heading-dark);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+/* Design Examples Section */
+.design-examples {
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+}
+.design-examples .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+.design-examples h2 {
+    color: var(--heading-dark);
+}
+.carousel-arrows-section {
+    display: flex;
+    gap: var(--spacing-md);
+}
+.carousel-arrows-section .carousel-arrow {
+    background-color: var(--white);
+    border-color: var(--border-light);
+    color: var(--text-dark);
+}
+.carousel-arrows-section .carousel-arrow:hover {
+    background-color: var(--light-gray-bg);
+}
+.example-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.example-carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.example-carousel-item {
+    min-width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    padding-bottom:0; /* 16:9 aspect ratio */
+}
+.example-carousel-item img {
+    position: absolute; top:0; left: 0; width: 180%; height: 100%; object-fit: cover;
+     border-radius: 0px;
+}
+.example-overlay {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+    max-width: 420px;
+    padding: 24px 28px;
+    border-radius: 0px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.75));
+    color: var(--white);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.example-overlay h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.example-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    font-size: 0.9rem;
+    color: #E5E7EB;
+}
+
+.example-details span {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+}
+
+.example-details strong {
+    display: block;
+    margin-top: 2px;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+}
+.example-overlay h3 { margin-bottom: var(--spacing-sm); }
+.example-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+    color: #E5E7EB;
+}
+.example-details strong { color: var(--white); font-weight: 500; }
+
+/* Professional-Grade Section */
+.professional-grade {
+    background-color: #030712;
+    padding: var(--spacing-xxl) 0;
+    color: #D1D5DB;
+}
+.professional-grade .container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+.professional-grade-image {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+.professional-grade-image .status {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: var(--spacing-lg);
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    color: #9CA3AF;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.professional-grade-image .status-online { display: flex; align-items: center; gap: 6px; color: var(--white); }
+.professional-grade-image .status .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--green-status);
+    border-radius: 50%;
+}
+.professional-grade-content h2 { color: var(--white); }
+.professional-grade-content p { font-size: 1.1rem; margin-bottom: var(--spacing-lg); }
+.professional-grade-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+/* Pricing Section */
+.pricing {
+    background-color: var(--white);
+    color: var(--text-dark);
+    text-align: center;
+}
+.pricing h2 { color: var(--heading-dark); }
+.pricing p.subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.pricing-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.pricing-card:hover { transform: translateY(-5px); }
+.pricing-card.highlighted {
+    border-color: var(--orange-highlight);
+    border-width: 2px;
+}
+.pricing-card h3 {
+    color: var(--heading-dark);
+    margin-bottom: var(--spacing-sm);
+}
+.pricing-card .price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--heading-dark);
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+}
+.pricing-card .price span {
+    font-size: 1rem;
+    font-weight: 500;
+    align-self: flex-end;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+.pricing-card .description {
+    font-size: 0.9rem;
+    min-height: 40px;
+    margin-bottom: var(--spacing-lg);
+}
+.pricing-card .features {
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+}
+.pricing-card .features li {
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    position: relative;
+    padding-left: 28px;
+}
+.pricing-card .features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--orange-highlight);
+    font-weight: bold;
+}
+.pricing-card .btn { width: 100%; padding: 14px 24px; }
+
+
+/* Footer */
+.footer {
+    background-color: #030712;
+    color: #9CA3AF;
+    padding: var(--spacing-xl) 0;
+    font-size: 0.9rem;
+}
+.footer .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+}
+.footer-brand { padding-right: var(--spacing-lg); }
+.footer-brand .logo { margin-bottom: var(--spacing-md); }
+.footer-brand p { line-height: 1.8; margin-bottom: var(--spacing-lg); }
+.footer-links h4 {
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+.footer-links ul li { margin-bottom: var(--spacing-sm); }
+.footer-links ul li a:hover { color: var(--white); }
+.footer-bottom {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-lg);
+}
+.footer-socials { display: flex; gap: var(--spacing-lg); }
+.footer-socials a { font-size: 1.2rem; transition: color 0.3s ease; }
+.footer-socials a:hover { color: var(--white); }
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .nav-container, .header-actions .btn-text-link {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--white);
+        cursor: pointer;
+        z-index: 1001; /* Above nav */
+    }
+    .header { justify-content: space-between; }
+    
+    .nav-menu-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-lg);
+        transform: translateY(-100%);
+        transition: transform 0.4s ease;
+    }
+    .nav-menu-mobile.active {
+        transform: translateY(0);
+    }
+    .nav-menu-mobile a { font-size: 1.5rem; }
+
+    .hero-bg-text { font-size: 24vw; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .hero-carousel-nav { flex-direction: column; align-items: flex-end; gap: var(--spacing-md); }
+    .carousel-arrows { margin-bottom: 0; }
+    .how-it-works .container,
+    .professional-grade .container {
+        grid-template-columns: 1fr;
+    }
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+    .footer .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: var(--spacing-xl) 0;
+  }
+
+  /* Slightly smaller global h1 on small screens */
+  h1 { font-size: 2rem; }
+
+  .header {
+    top: 14px;
+    padding-inline: var(--spacing-md);
+  }
+
+  .hero {
+    align-items: center;
+    padding-top: 110px;
+  }
+
+  /* Keep hero content on the LEFT, not centered */
+  .hero-content {
+    margin: 0;
+    max-width: 340px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;           /* smaller so it doesn’t push down */
+    line-height: 1.15;
+  }
+
+  .hero-content p {
+    max-width: 320px;
+    font-size: 0.98rem;
+  }
+
+  .hero-bg-text {
+    display: none;
+  }
+
+  .hero-carousel-nav {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    bottom: var(--spacing-lg);
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 18px;
+    background-color: rgba(15, 23, 42, 0.85);
+  }
+
+  .hero-thumbnails .thumbnail {
+    width: 110px;
+    height: 66px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    .header-actions .btn-light { display: none; }
+    .professional-grade .container {
+        grid-template-columns: 1fr;
+    }
+    .pricing-cards {
+        gap: var(--spacing-md);
+    }
+    .footer .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand .logo { justify-content: center; }
+    .footer-bottom { text-align: center; }
+}
+/* ===========================
+   AUTH LAYOUT (SIGNIN / SIGNUP / FORGOT)
+   =========================== */
+
+body.auth-page {
+    background-color: #F3F4F6;
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Override global dark body for auth pages */
+body.auth-page.signin,
+body.auth-page.signup,
+body.auth-page.forgot-password {
+    background-color: #F3F4F6;
+}
+
+/* Layout */
+.auth-left,
+.auth-right {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.auth-left {
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+}
+
+/* Background images per page */
+body.auth-page.signin .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4)),
+        url('../img/signin-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+body.auth-page.signup .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+        url('../img/signup-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+body.auth-page.forgot-password .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+        url('../img/forgot-password-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-left h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    margin-top: 120px;
+    max-width: 420px;
+}
+
+.auth-left h1 strong {
+    color: var(--orange-highlight);
+}
+
+.auth-left p {
+    margin-top: 16px;
+    max-width: 420px;
+    font-size: 1rem;
+    color: rgba(249, 250, 251, 0.85);
+}
+
+.auth-left-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.85);
+    margin-top: 40px;
+    font-size: 0.85rem;
+}
+
+.auth-left-trust .avatars {
+    display: flex;
+}
+
+.auth-left-trust .avatars img {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 2px solid #111827;
+    margin-left: -8px;
+}
+.auth-left-trust .avatars img:first-child {
+    margin-left: 0;
+}
+
+/* Right side (form) */
+.auth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+}
+
+.auth-form-container {
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px 40px 32px;
+    max-width: 430px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.auth-form-container h2 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    color: var(--heading-dark);
+}
+
+.auth-form-container .subtitle {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 24px;
+}
+
+/* Form fields */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    font-size: 0.95rem;
+    background-color: #F9FAFB;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-group input:focus {
+    border-color: #4F46E5;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.3);
+}
+
+/* Password input wrapper (icon inside) */
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    padding-right: 40px;
+}
+
+.password-input-wrapper .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.error-message {
+    display: none;
+    color: #DC2626;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Form options (remember me / terms) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.form-options a,
+.auth-footer-text a,
+.forgot-password-link a {
+    color: #4F46E5;
+    font-weight: 500;
+}
+
+.form-options a:hover,
+.auth-footer-text a:hover,
+.forgot-password-link a:hover {
+    text-decoration: underline;
+}
+/* Social login */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    margin: 22px 0 14px;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #E5E7EB;
+}
+
+.auth-separator::before {
+    margin-right: 12px;
+}
+.auth-separator::after {
+    margin-left: 12px;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.btn-social {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #111827;
+    font-size: 0.9rem;
+}
+
+.btn-social i {
+    font-size: 1rem;
+}
+
+/* Footer text on auth pages */
+.auth-footer-text {
+    font-size: 0.85rem;
+    color: #6B7280;
+    text-align: center;
+    margin-top: 6px;
+}
+
+/* Forgot password specific */
+.forgot-password-link {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.forgot-password-link i {
+    margin-right: 4px;
+}
+
+/* Auth responsiveness */
+@media (max-width: 960px) {
+    body.auth-page {
+        flex-direction: column;
+    }
+
+    .auth-left {
+        min-height: 260px;
+    }
+
+    .auth-left-content {
+        padding: 24px 24px 32px;
+    }
+
+    .auth-left h1 {
+        margin-top: 40px;
+        font-size: 2rem;
+    }
+
+    .auth-right {
+        padding: 24px 16px 40px;
+    }
+
+    .auth-form-container {
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.18);
+    }
+}
+/* ===========================
+   AUTH PAGES (SIGN IN / SIGN UP / FORGOT)
+   =========================== */
+
+/* Override global dark body for auth pages */
+body.auth-page {
+    background-color: #F3F4F6;
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    font-family: var(--font-primary);
+}
+
+/* Left + right columns */
+.auth-left,
+.auth-right {
+    flex: 1;
+    min-height: 100vh;
+}
+
+/* LEFT SIDE: image + gradient */
+.auth-left {
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+}
+
+/* Background image per page */
+body.auth-page.signin .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45)),
+        url("../img/signin-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.auth-page.signup .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+        url("../img/signup-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+body.auth-page.forgot-password .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+        url("../img/forgot-password-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-left-content {
+    position: relative;
+    height: 100%;
+    padding: 18px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Logo top-left */
+.auth-left .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.auth-left h1 strong {
+    color: var(--orange-highlight);
+}
+
+/* Trust pill at bottom-left */
+.auth-left-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background-color: rgba(15, 23, 42, 0.92);
+    margin-top: 40px;
+    font-size: 0.85rem;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+}
+
+.auth-left-trust .avatars {
+    display: flex;
+}
+
+.auth-left-trust .avatars img {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 2px solid #111827;
+    margin-left: -8px;
+}
+.auth-left-trust .avatars img:first-child {
+    margin-left: 0;
+}
+
+/* RIGHT SIDE: form area */
+.auth-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+}
+
+/* Card that holds the form */
+.auth-form-container {
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px 40px 32px;
+    max-width: 430px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+/* Sign in / Sign up / Forgot headings */
+.auth-form-container h2 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    color: var(--heading-dark);
+}
+
+.auth-form-container .subtitle {
+    font-size: 0.95rem;
+    color: #6B7280;
+    margin-bottom: 24px;
+}
+
+/* Generic form styles */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 70%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    font-size: 0.95rem;
+    background-color: #F9FAFB;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-group input:focus {
+    border-color: #4F46E5;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.3);
+}
+
+/* Wrapper for password field + icon */
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    padding-right: 40px;
+}
+
+.password-input-wrapper .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Password strength bar (signup) */
+.password-strength-bar {
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background-color: #E5E7EB;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.password-strength-bar .strength-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #F97316, #F59E0B);
+    transition: width 0.2s ease;
+}
+
+.error-message {
+    display: none;
+    color: #DC2626;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Remember me / terms row */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+/* Links on auth pages (forgot, signup, etc.) */
+.form-options a,
+.auth-footer-text a,
+.forgot-password-link a {
+    color: #4F46E5;
+    font-weight: 500;
+}
+
+.form-options a:hover,
+.auth-footer-text a:hover,
+.forgot-password-link a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #4F46E5, #6366F1);
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+/* Orange button (signup + forgot) */
+.btn-orange {
+    background-color: #F97316;
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.btn-orange:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-arrow {
+    margin-left: 6px;
+}
+
+/* Social login */
+.auth-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    margin: 22px 0 14px;
+}
+
+.auth-separator::before,
+.auth-separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #E5E7EB;
+}
+
+.auth-separator::before {
+    margin-right: 12px;
+}
+.auth-separator::after {
+    margin-left: 12px;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.btn-social {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #111827;
+    font-size: 0.9rem;
+}
+
+.btn-social i {
+    font-size: 1rem;
+}
+
+/* Small footer text under form */
+.auth-footer-text {
+    font-size: 0.85rem;
+    color: #6B7280;
+    text-align: center;
+    margin-top: 6px;
+}
+
+/* Forgot password "Back to sign in" */
+.forgot-password-link {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.forgot-password-link i {
+    margin-right: 4px;
+}
+
+/* Auth pages – responsive layout */
+@media (max-width: 960px) {
+    body.auth-page {
+        flex-direction: column;
+    }
+
+    .auth-left {
+        min-height: 260px;
+    }
+
+    .auth-left-content {
+        padding: 24px 24px 32px;
+    }
+
+    .auth-left h1 {
+        margin-top: 40px;
+        font-size: 2.1rem;
+    }
+
+    .auth-right {
+        padding: 24px 16px 40px;
+    }
+
+    .auth-form-container {
+        border-radius: 18px 18px 0 0;
+        box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.18);
+    }
+}
+/* === HERO "Start Designing" BUTTON – MAKE IT SMALL, NOT FULL WIDTH === */
+.hero .btn-outline-light {
+    display: inline-flex !important;   /* not block */
+    width: auto !important;            /* no 100% width */
+    min-width: 0;
+    align-self: flex-start;
+
+    padding: 4px 12px;                 /* control size */
+    font-size: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid var(--orange-highlight);
+    color: #F9FAFB;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+.hero .btn-outline-light:hover {
+    background-color: rgba(4, 7, 20, 1);
+    filter: brightness(1.05);
+}
+.hero-carousel-nav {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-lg);
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacing-lg);
+}
+
+.hero-thumbnails {
+    display: flex;
+    gap: 12px;
+    background-color: rgba(15, 23, 42, 0.75);
+    padding: 6px;
+    border-radius: 18px;
+}
+
+.hero-thumbnails .thumbnail {
+    width: 150px;
+    height: 90px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.7;
+}
+
+.hero-thumbnails .thumbnail:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.hero-thumbnails .thumbnail.active {
+    border-color: var(--white);
+    opacity: 1;
+}
+
+.hero-thumbnails .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* SIGNUP PAGE – LEFT IMAGE */
+body.auth-page.signup .auth-left {
+    background-image:
+        linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.35)),
+        url('../img/signup-bg.jpg');  /* use .jpeg if that’s your real file */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* =========================================================
+   SIGNUP PAGE – CLEAN 2-COLUMN LAYOUT
+   Left image, right form, matching top/bottom edges
+   ========================================================= */
+
+body.auth-page.signup {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;       /* page doesn't scroll */
+  font-size: 13px;
+}
+
+/* Left & right take equal height */
+body.auth-page.signup .auth-left,
+body.auth-page.signup .auth-right {
+  flex: 1 1 50%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* RIGHT SIDE: full-height column */
+body.auth-page.signup .auth-right {
+  display: flex;
+  align-items: stretch;       /* card fills full column height */
+  justify-content: center;    /* card centered horizontally */
+  padding: 0;
+  background-color: #f6f3f3;
+  overflow: hidden;
+}
+
+/* FORM PANEL: full-height card, content centered vertically */
+body.auth-page.signup .auth-form-container {
+  width: 100%;
+  max-width: 520px;           /* width of right column content */
+  height: 100%;               /* stretch to full column height */
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #fbfbf9;
+
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* ← vertical center of heading + form + buttons */
+  overflow: hidden;
+}
+
+/* Heading + subtitle */
+body.auth-page.signup .auth-form-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+body.auth-page.signup .auth-form-container .subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+/* Tighter form spacing */
+body.auth-page.signup .form-group {
+  margin-bottom: 8px;
+}
+body.auth-page.signup .form-group label {
+  margin-bottom: 3px;
+  font-size: 0.85rem;
+}
+body.auth-page.signup .form-group input[type="text"],
+body.auth-page.signup .form-group input[type="email"],
+body.auth-page.signup .form-group input[type="password"] {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+   width: 100%;
+}
+
+/* Password helpers */
+body.auth-page.signup #password-error {
+  margin-top: 2px;
+  font-size: 0.8rem;
+}
+
+/* Checkbox + button row */
+body.auth-page.signup .form-options {
+  margin-top: 2px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+}
+body.auth-page.signup .btn-orange {
+  padding: 8px 14px;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+/* Social & footer */
+body.auth-page.signup .auth-separator {
+  margin: 12px 0 8px;
+  font-size: 0.8rem;
+}
+body.auth-page.signup .social-login {
+  margin-bottom: 8px;
+}
+body.auth-page.signup .btn-social {
+  padding: 7px 10px;
+  font-size: 0.85rem;
+}
+body.auth-page.signup .auth-footer-text {
+  margin-top: 4px;
+  font-size: 0.82rem;
+}
+
+/* Small screens: stack top/bottom but keep consistent look */
+@media (max-width: 768px) {
+  body.auth-page.signup {
+    flex-direction: column;
+  }
+
+  body.auth-page.signup .auth-left {
+    flex: 0 0 40%;
+  }
+
+  body.auth-page.signup .auth-right {
+    flex: 1 1 60%;
+  }
+
+  body.auth-page.signup .auth-form-container {
+    max-width: 100%;
+    height: auto;
+    padding: 14px 16px 10px;
+  }
+
+  body.auth-page.signup .auth-form-container h2 {
+    font-size: 1.4rem;
+  }
+}
+/* SIGNUP PAGE – remove card background, keep only content */
+body.auth-page.signup .auth-right {
+    /* right half background, full height */
+    background-color: #F3F4F6;
+    display: flex;
+    align-items: center;          /* center content vertically */
+    justify-content: center;      /* center content horizontally */
+    padding: 0 140px;              /* side padding for breathing room */
+}
+
+body.auth-page.signup .auth-form-container {
+    /* remove card look */
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+
+    /* just a content column */
+    max-width: 520px !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+
+    /* center the inner content vertically */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+}
+/* =========================================================
+   SIGNIN PAGE – 2-COLUMN, NO CARD, CENTERED CONTENT
+   ========================================================= */
+
+/* Page: two equal columns, full viewport height */
+body.auth-page.signin {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;                 /* page itself doesn't scroll */
+}
+
+/* Left and right share the height */
+body.auth-page.signin .auth-left,
+body.auth-page.signin .auth-right {
+  flex: 1 1 50%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* LEFT: image panel (background already defined above in your CSS) */
+
+/* RIGHT: full-height column with flat background */
+body.auth-page.signin .auth-right {
+  display: flex;
+  align-items: center;              /* center card/content vertically */
+  justify-content: center;          /* center horizontally */
+  padding: 0 48px;
+  background-color: #F3F4F6;
+  overflow: hidden;
+}
+
+/* Remove the white card look – keep only content */
+body.auth-page.signin .auth-form-container {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  width: 70% !important;
+  max-width: 480px !important;
+
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;  /* center content vertically */
+}
+
+/* Make inputs and main button full width */
+body.auth-page.signin .form-group input[type="email"],
+body.auth-page.signin .form-group input[type="password"] {
+  width: 100% !important;
+}
+
+body.auth-page.signin .btn-primary {
+  width: 100% !important;
+}
+
+/* Slightly tighten spacing so it fits nicely */
+body.auth-page.signin .form-group {
+  margin-bottom: 12px;
+}
+body.auth-page.signin .auth-form-container h2 {
+  margin-bottom: 4px;
+}
+body.auth-page.signin .auth-form-container .subtitle {
+  margin-bottom: 16px;
+}
+
+/* Small screens: stack top/bottom, use less height */
+@media (max-width: 768px) {
+  body.auth-page.signin {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body.auth-page.signin .auth-left {
+    flex: 0 0 40%;
+  }
+
+  body.auth-page.signin .auth-right {
+    flex: 1 1 60%;
+    padding: 24px 16px;
+  }
+
+  body.auth-page.signin .auth-form-container {
+    max-width: 100% !important;
+  }
+}
+/* ============= SQUARE BUTTONS (NO OVAL / PILL) ============= */
+
+/* Base button */
+.btn {
+    border-radius: 4px !important;   /* small square corners */
+}
+
+/* Auth + CTA buttons that were pills */
+.btn-primary,
+.btn-orange,
+.btn-social,
+.hero .btn-outline-light,
+.pricing-card .btn,
+.auth-page .btn-primary,
+.auth-page .btn-orange {
+    border-radius: 4px !important;
+}
+
+/* Any outline/light/dark variants */
+.btn-light,
+.btn-outline-light,
+.btn-dark,
+.btn-outline-dark {
+    border-radius: 4px !important;
+}
+/* =========================================================
+   FORGOT PASSWORD – 2-COLUMN, NO CARD, CENTERED CONTENT
+   ========================================================= */
+
+/* Page: two equal columns, full viewport height */
+body.auth-page.forgot-password {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;                 /* page itself doesn't scroll */
+}
+
+/* Left and right share the height */
+body.auth-page.forgot-password .auth-left,
+body.auth-page.forgot-password .auth-right {
+  flex: 1 1 50%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* LEFT: image panel already defined earlier:
+   body.auth-page.forgot-password .auth-left {
+       background-image: linear-gradient(...), url('../img/forgot-password-bg.jpg');
+   }
+*/
+
+/* RIGHT: full-height column with flat background */
+body.auth-page.forgot-password .auth-right {
+  display: flex;
+  align-items: center;              /* center content vertically */
+  justify-content: center;          /* center content horizontally */
+  padding: 0 48px;
+  background-color: #F3F4F6;
+  overflow: hidden;
+}
+
+/* Remove the white card box – keep only content */
+body.auth-page.forgot-password .auth-form-container {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  width: 100% !important;
+  max-width: 480px !important;
+
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;  /* center content vertically */
+}
+
+/* Make input + button full width like sign in/sign up */
+body.auth-page.forgot-password .form-group input[type="email"] {
+  width: 100% !important;
+}
+
+body.auth-page.forgot-password .btn-orange {
+  width: 100% !important;
+}
+
+/* Slightly tighter spacing so it fits nicely */
+body.auth-page.forgot-password .form-group {
+  margin-bottom: 12px;
+}
+body.auth-page.forgot-password .auth-form-container h2 {
+  margin-bottom: 4px;
+}
+body.auth-page.forgot-password .auth-form-container .subtitle {
+  margin-bottom: 16px;
+}
+
+/* Small screens: stack top/bottom, similar to signin */
+@media (max-width: 768px) {
+  body.auth-page.forgot-password {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body.auth-page.forgot-password .auth-left {
+    flex: 0 0 40%;
+  }
+
+  body.auth-page.forgot-password .auth-right {
+    flex: 1 1 60%;
+    padding: 24px 16px;
+  }
+
+  body.auth-page.forgot-password .auth-form-container {
+    max-width: 100% !important;
+  }
+}
+/* =========================================================
+   SOCIAL LOGIN MODAL
+   ========================================================= */
+
+.social-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: none;                 /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.social-modal-backdrop.active {
+  display: flex;
+}
+
+.social-modal {
+  background: #FFFFFF;
+  color: #111827;
+  padding: 24px 28px 20px;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.45);
+  max-width: 380px;
+  width: 100%;
+  position: relative;
+  font-family: var(--font-primary);
+}
+
+.social-modal h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.social-modal p {
+  font-size: 0.9rem;
+  color: #4B5563;
+  margin-bottom: 18px;
+}
+
+.social-modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.social-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #6B7280;
+}
+
+.social-modal-close:hover {
+  color: #111827;
+}
+
+/* Use your existing button styles but slightly adjust inside modal */
+.social-modal .btn-primary {
+  width: auto;
+  padding-inline: 18px;
+}
+
+.social-modal .btn-text-link {
+  padding: 0 8px;
+}
+/* =========================
+   SOCIAL BUTTONS (GOOGLE / APPLE)
+   ========================= */
+
+.social-login.social-login-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-btn {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 4px;          /* square, not pill */
+  border: 1px solid #D1D5DB;
+  background-color: #FFFFFF;
+  color: #111827;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-flex;
+  gap: 10px;
+}
+
+.social-btn-icon i {
+  font-size: 1.1rem;
+}
+
+.social-btn-google {
+  border-color: #DADCE0;
+}
+
+.social-btn-google .social-btn-icon i {
+  color: #4285F4;              /* Google blue for icon */
+}
+
+.social-btn-apple {
+  border-color: #D1D5DB;
+}
+
+.social-btn-apple .social-btn-icon i {
+  color: #111827;
+}
+
+.social-btn:hover {
+  background-color: #F3F4F6;
+}
+
+/* Keep "Continue with Email" style if you ever add it */
+.social-btn-email {
+  background-color: #4F46E5;
+  border-color: #4F46E5;
+  color: #FFFFFF;
+}
+/* === AUTH LEFT COLUMN: tighten vertical spacing on all auth pages === */
+
+/* Make left content start higher and use less padding */
+body.auth-page .auth-left-content {
+    padding-top: 32px !important;        /* was 48px / 18px in different blocks */
+    padding-bottom: 32px !important;
+    justify-content: flex-start !important;
+}
+
+/* Heading: reduce top offset and bottom gap */
+body.auth-page .auth-left h1 {
+    margin-top: 280px !important;         /* was 120px */
+    margin-bottom: 4px !important;       /* almost no gap under heading */
+    line-height: 1.1 !important;
+    font-size: 3.0rem !important; 
+    font-weight: 500;
+    /* was 2.4rem */
+}
+
+/* Paragraph: remove extra gap above */
+body.auth-page .auth-left p {
+    margin-top: 4px !important;  
+    font-size: small;        /* was 16px */
+}
+
+/* Trust pill: bring it closer to the text block */
+body.auth-page .auth-left-trust {
+    margin-top: 16px !important;         /* was 40px */
+}
+/* === Auth pages close button (top-right "X") === */
+body.auth-page .auth-close {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #4B5563;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 1100;  /* above everything on auth pages */
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+body.auth-page .auth-close:hover {
+    background-color: #F3F4F6;
+    color: #111827;
+}
+/* =========================================
+   HOW IT WORKS – FINAL LAYOUT (MATCH REFERENCE)
+   ========================================= */
+
+.how-it-works {
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+}
+
+.how-it-works .container {
+  max-width: 1200px;                          /* wider overall section */
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  /*    ↑ bigger left column  ↑ right column */
+  gap: 56px;
+  align-items: left;
+}
+/* LEFT IMAGE */
+.how-it-works .how-it-works-image {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
+  height: 480px;                    /* adjust 340–380px if needed */
+}
+
+.how-it-works .how-it-works-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RIGHT CONTENT */
+.how-it-works .how-it-works-content h2 {
+  color: #111827;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+   margin-top: -40px;
+  padding-left: 32px;
+}
+/* TIMELINE WRAPPER */
+.how-it-works .how-it-works-steps {
+  position: relative;
+  margin-top: 16px;
+  padding-left: 56px;                    /* room for line + dots */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* VERTICAL LINE */
+.how-it-works .how-it-works-steps::before {
+  content: "";
+  position: absolute;
+  left: 20px;                            /* center of dots */
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: #E5E7EB;
+}
+
+/* EACH STEP ROW */
+.how-it-works .how-it-works-step {
+  position: relative;
+}
+
+/* NUMBER AS TEXT (NO CIRCLE) */
+.how-it-works .how-it-works-step .step-number {
+  position: relative;
+  padding-left: 6px;                    /* number to the right of the dot */
+  margin-bottom: 4px;
+
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: #9CA3AF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* DOT ON THE VERTICAL LINE */
+.how-it-works .how-it-works-step .step-number::before {
+  content: "";
+  position: absolute;
+   left: -42px !important;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #E5E7EB;
+  background: #FFFFFF;
+}
+
+/* FIRST STEP: ORANGE DOT + DARK NUMBER */
+.how-it-works .how-it-works-step:first-child .step-number::before {
+  border-color: #F59E0B;
+  background: #F59E0B;
+}
+.how-it-works .how-it-works-step:first-child .step-number {
+  color: #111827;
+}
+
+/* TEXT TO THE RIGHT OF NUMBER */
+.how-it-works .how-it-works-step .step-text {
+  margin-left: 12px;
+}
+
+.how-it-works .how-it-works-step .step-text h4 {
+  color: #111827;
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.how-it-works .how-it-works-step .step-text p {
+  color: #6B7280;
+  font-size: 0.95rem;
+}
+
+/* TABLET LAYOUT */
+@media (max-width: 1024px) {
+  .how-it-works .container {
+    grid-template-columns: 1fr;
+  }
+
+  .how-it-works .how-it-works-image {
+    height: auto;
+  }
+
+  .how-it-works .how-it-works-steps {
+    padding-left: 44px;
+  }
+
+  .how-it-works .how-it-works-steps::before {
+    left: 18px;
+  }
+
+  .how-it-works .how-it-works-step .step-number {
+    padding-left: 24px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .how-it-works.section-padding {
+    padding: 56px 0 72px;
+  }
+}
+/* Tighten vertical spacing around "How Morphopolis Works" */
+#how-it-works.section-padding {
+    padding: 48px 0 56px;   /* was much larger (80–128px) */
+}
+
+/* Also reduce the top padding of the next section ("Design Examples") */
+#projects.section-padding {
+    padding-top: 56px;      /* instead of the big default */
+}
+/* Design Examples – adjust image crop and heading gap */
+
+/* Move image crop a bit upward (show more bottom, less sky) */
+.example-carousel-item img {
+    object-position: center top;   /* was default center */
+}
+
+/* Reduce gap between section title and image */
+.design-examples .section-header {
+    margin-bottom: 5px !important;           /* was var(--spacing-lg); ~32px */
+}
+/* DESIGN EXAMPLES – shrink image height and move it closer to heading */
+
+/* Make the image box less tall (was 56.25% = 16:9) */
+.design-examples .example-carousel-item {
+    padding-bottom: 42%;      /* try 40–45% until it feels right */
+}
+
+/* Reduce the gap between the heading row and the image */
+.design-examples .section-header {
+    margin-bottom: 8px;       /* was larger; brings image closer to text */
+}
+/* ===== TIGHTER VERTICAL SPACING AROUND DESIGN EXAMPLES ===== */
+
+/* Reduce top and bottom padding for the Projects (examples) section */
+#projects.section-padding {
+    padding-top: 48px;   /* was much larger */
+    padding-bottom: 56px;
+}
+
+/* Reduce gap between section heading row and the carousel image */
+.design-examples .section-header {
+    margin-bottom: 8px;  /* was var(--spacing-lg) (~32px) */
+}
+
+/* Optional: reduce top padding of the next section so it's closer */
+.professional-grade.section-padding {
+    padding-top: 56px;   /* instead of the big default */
+}
+/* DESIGN EXAMPLES – glassmorphism overlay */
+.example-overlay {
+    background: rgba(15, 23, 42, 0.35);             /* semi‑transparent dark */
+    border: 1px solid rgba(255, 255, 255, 0.35);    /* light glass border */
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.45); /* soft shadow */
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(2px);
+    width: 400px;            /* Safari */
+}
