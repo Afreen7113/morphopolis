@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification Center – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app notifications-page">
+
+  <!-- Sidebar (reference-like) -->
+  <aside class="notif-sidebar" id="app-sidebar">
+    <div class="notif-brand">
+      <div class="notif-brand-badge">
+        <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+      </div>
+      <div class="notif-brand-text">
+        <div class="notif-brand-title">Morphopolis</div>
+        <div class="notif-brand-sub">ARCHITECTURAL AI</div>
+      </div>
+
+      <button class="notif-close" id="app-sidebar-close" type="button" aria-label="Close sidebar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="notif-nav">
+      <a class="notif-nav-item" href="dashboard.html"><i class="fa-solid fa-border-all"></i><span>Workspace</span></a>
+      <a class="notif-nav-item" href="dashboard.html"><i class="fa-regular fa-folder-open"></i><span>Projects</span></a>
+      <a class="notif-nav-item" href="new-project.html"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Generator</span></a>
+      <a class="notif-nav-item active" href="notifications.html"><i class="fa-regular fa-bell"></i><span>Notifications</span></a>
+    </nav>
+
+    <div class="notif-user">
+      <div class="notif-user-card">
+        <div class="notif-user-avatar" id="app-user-avatar">U</div>
+        <div class="notif-user-meta">
+          <div class="notif-user-name" id="app-user-name">User Name</div>
+          <div class="notif-user-role">Senior Architect</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="notif-main">
+    <!-- Topbar -->
+    <header class="notif-topbar">
+      <button class="notif-hamburger" id="app-hamburger" type="button" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="notif-search">
+        <i class="fas fa-search"></i>
+        <input id="notif-search" type="text" placeholder="Search notifications or projects..." />
+      </div>
+
+      <div class="notif-topbar-right">
+        <a class="notif-toplink" href="support.html"><i class="fa-regular fa-circle-question"></i> SUPPORT</a>
+        <span class="notif-divider"></span>
+        <button class="notif-lang" type="button">EN <i class="fas fa-chevron-down"></i></button>
+        <a class="notif-icon" href="settings.html" aria-label="Settings"><i class="fas fa-cog"></i></a>
+      </div>
+    </header>
+
+    <!-- Content + Right Panel -->
+    <div class="notif-layout">
+      <!-- Center -->
+      <main class="notif-content">
+        <div class="notif-header">
+          <div>
+            <h1>Notification Center</h1>
+            <p>Monitor your AI generations, team collaborations, and system health.</p>
+          </div>
+
+          <button class="notif-markread" type="button" id="notif-mark-all">
+            <i class="fa-solid fa-check"></i> MARK ALL AS READ
+          </button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="notif-tabs">
+          <button class="notif-tab active" type="button" data-tab="all">All Notifications</button>
+          <button class="notif-tab" type="button" data-tab="unread">
+            Unread <span class="notif-count" id="notif-unread-count">0</span>
+          </button>
+          <button class="notif-tab" type="button" data-tab="archived">Archived</button>
+        </div>
+
+        <!-- Type chips -->
+        <div class="notif-chips">
+          <button class="notif-chip active" type="button" data-type="all">
+            <i class="fa-solid fa-layer-group"></i>ALL TYPES
+          </button>
+          <button class="notif-chip" type="button" data-type="ai">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> AI OUTPUT
+          </button>
+          <button class="notif-chip" type="button" data-type="team">
+            <i class="fa-solid fa-user-group"></i> TEAM
+          </button>
+          <button class="notif-chip" type="button" data-type="approvals">
+            <i class="fa-solid fa-circle-check"></i> APPROVALS
+          </button>
+        </div>
+
+        <!-- Feed -->
+        <div class="notif-feed" id="notif-feed"></div>
+      </main>
+
+      <!-- Right panel -->
+      <aside class="notif-right">
+        <div class="notif-right-title">RECENT ACTIVITY</div>
+
+        <div class="notif-right-section">
+          <div class="notif-right-label">ACTIVE SESSION</div>
+          <div class="active-card" id="active-session-card">
+            <!-- JS renders -->
+          </div>
+        </div>
+
+        <div class="notif-right-section">
+          <div class="notif-right-label">COLLABORATORS</div>
+
+          <div class="collab-avatars" id="collab-avatars"></div>
+          <div class="collab-list" id="collab-list"></div>
+
+          <button class="collab-add" type="button" id="collab-add-btn">
+            Add Collaborator <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+
+        <div class="notif-tip">
+          <div class="notif-tip-icon"><i class="fa-regular fa-lightbulb"></i></div>
+          <div>
+            <div class="notif-tip-title">Did you know?</div>
+            <div class="notif-tip-sub">You can filter notifications by Project ID by typing <b>#project-id</b> in the search bar.</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Add collaborator modal -->
+  <div class="notif-modal-backdrop" id="collab-modal">
+    <div class="notif-modal" role="dialog" aria-modal="true" aria-label="Add collaborator">
+      <div class="notif-modal-head">
+        <div>
+          <div class="notif-modal-title">Add collaborator</div>
+          <div class="notif-modal-sub">Adds a collaborator to your workspace list.</div>
+        </div>
+        <button class="notif-x" id="collab-modal-close" type="button" aria-label="Close">&times;</button>
+      </div>
+
+      <div class="notif-modal-body">
+        <label>Name</label>
+        <input id="collab-name" type="text" placeholder="Full name" />
+
+        <label style="margin-top:10px;">Role</label>
+        <input id="collab-role" type="text" placeholder="Senior Architect" />
+      </div>
+
+      <div class="notif-modal-actions">
+        <button class="notif-btn ghost" id="collab-cancel" type="button">Cancel</button>
+        <button class="notif-btn primary" id="collab-save" type="button">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

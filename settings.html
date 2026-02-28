@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Settings – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app settings-ref-page">
+
+  <!-- Sidebar (reference style) -->
+  <aside class="settings-ref-sidebar" id="app-sidebar" aria-label="Settings sidebar">
+    <div class="settings-ref-brand">
+      <div class="settings-ref-brand-badge">
+  <img src="./img/logo-morphopolis.png" alt="Morphopolis logo">
+</div>
+      <div class="settings-ref-brand-text">
+        <div class="settings-ref-brand-title">Morphopolis</div>
+        <div class="settings-ref-brand-sub">ARCHITECTURAL AI</div>
+      </div>
+
+      <!-- close button (mobile) -->
+      <button class="settings-ref-close" id="app-sidebar-close" type="button" aria-label="Close sidebar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="settings-ref-nav" aria-label="Primary">
+      <a class="settings-ref-nav-item" href="dashboard.html">
+        <i class="fa-solid fa-layer-group"></i><span>Projects</span>
+      </a>
+      <a class="settings-ref-nav-item" href="library.html">
+        <i class="fa-solid fa-cube"></i><span>Models</span>
+      </a>
+      <a class="settings-ref-nav-item" href="library.html">
+        <i class="fa-solid fa-book"></i><span>Library</span>
+      </a>
+      <a class="settings-ref-nav-item active" href="settings.html">
+        <i class="fa-solid fa-gear"></i><span>Settings</span>
+      </a>
+    </nav>
+
+    <a class="settings-ref-newproject" href="new-project.html">
+      <i class="fa-solid fa-plus"></i>
+      <span>New Project</span>
+    </a>
+
+    <div class="settings-ref-user">
+      <div class="settings-ref-user-card">
+       <div class="settings-ref-user-avatar" id="app-user-avatar"></div>
+<div>
+  <div class="settings-ref-user-name" id="app-user-name"></div>
+  <div class="settings-ref-user-plan" id="app-user-plan"></div>
+</div>   
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="settings-ref-main">
+    <!-- hamburger (works like reference: show/hide sidebar on small screens) -->
+    <button class="settings-ref-hamburger" id="app-hamburger" type="button" aria-label="Toggle sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <main class="settings-ref-content">
+      <!-- Header -->
+      <header class="settings-ref-header">
+        <h1>Account Settings</h1>
+        <p>Manage your professional identity and AI generation preferences.</p>
+
+        <div class="settings-ref-tabs" role="tablist">
+  <button class="settings-ref-tab active" type="button" data-tab="profile" role="tab" aria-selected="true">Profile</button>
+  <button class="settings-ref-tab" type="button" data-tab="preferences" role="tab" aria-selected="false">Preferences</button>
+  <a class="settings-ref-tab settings-ref-tab-link" href="billing.html">Billing</a>
+  <button class="settings-ref-tab" type="button" data-tab="security" role="tab" aria-selected="false">Security</button>
+
+  <!-- ✅ Support tab (redirects to support page) -->
+  <a class="settings-ref-tab settings-ref-tab-link" href="support.html">Support</a>
+</div>
+      </header>
+
+      <!-- PROFILE TAB PANEL -->
+      <section class="settings-ref-panelwrap" data-panel="profile">
+        <!-- Hero card -->
+        <section class="settings-ref-hero">
+          <div class="settings-ref-hero-left">
+            <div class="settings-ref-hero-avatar">
+              <img src="./img/signin-bg.jpg" alt="Profile photo" id="profile-photo" />
+              <button class="settings-ref-hero-cam" type="button" id="change-photo-btn" aria-label="Change photo">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+           <div class="settings-ref-hero-meta">
+  <div class="settings-ref-hero-name" id="hero-display-name"></div>
+  <div class="settings-ref-hero-role" id="hero-display-role"></div>
+
+  <div class="settings-ref-badges">
+    <span class="settings-ref-badge badge-plan" id="hero-plan-badge"></span>
+    <span class="settings-ref-badge badge-verified" id="hero-verified-badge" hidden>VERIFIED PROFESSIONAL</span>
+    <span class="settings-ref-badge badge-member" id="hero-premium-badge" hidden>PREMIUM MEMBER</span>
+  </div>
+</div>
+          </div>
+
+          <div class="settings-ref-hero-actions">
+<a class="settings-ref-linkbtn" href="portfolio.html" id="view-portfolio-btn">View Portfolio</a>
+            <button class="settings-ref-primarybtn" type="button" id="save-profile-btn">Save Profile Changes</button>
+          </div>
+        </section>
+
+        <!-- Professional Identity -->
+        <section class="settings-ref-card">
+          <div class="settings-ref-card-title">
+            <i class="fa-solid fa-user"></i>
+            <span>Professional Identity</span>
+          </div>
+
+          <div class="settings-ref-grid">
+            <div class="settings-ref-field">
+              <label>FULL NAME</label>
+<input type="text" id="profile-name" placeholder="Full name" />           
+ </div>
+
+            <div class="settings-ref-field">
+              <label>EMAIL ADDRESS</label>
+<input type="email" id="profile-email" placeholder="name@company.com" />
+            </div>
+
+            <div class="settings-ref-field">
+              <label>ARCHITECTURAL FIRM</label>
+<input type="text" id="profile-firm" placeholder="Your firm / company" />
+            </div>
+
+            <div class="settings-ref-field">
+              <label>PROFESSIONAL TITLE</label>
+<input type="text" id="profile-title" placeholder="Your title" />
+            </div>
+
+            <div class="settings-ref-field settings-ref-field-full">
+              <label>PROFESSIONAL BIO</label>
+<textarea id="profile-bio" rows="4" placeholder="Short bio..."></textarea>
+            </div>
+          </div>
+
+          <div class="settings-ref-status" id="settings-status-profile"></div>
+        </section>
+
+        <!-- Quick Engine Preferences -->
+        <section class="settings-ref-card">
+          <div class="settings-ref-card-title settings-ref-card-title-row">
+            <div class="settings-ref-card-title-left">
+              <i class="fa-solid fa-brain"></i>
+              <span>Quick Engine Preferences</span>
+            </div>
+            <button class="settings-ref-card-link" type="button" id="all-prefs-btn">ALL PREFERENCES →</button>
+          </div>
+
+          <div class="settings-ref-pref">
+            <div>
+              <div class="settings-ref-pref-name">Generative Rigidity</div>
+              <div class="settings-ref-pref-sub">Prioritize structural integrity over creative freedom.</div>
+            </div>
+            <label class="settings-ref-toggle">
+              <input type="checkbox" id="pref-rigidity" checked />
+              <span></span>
+            </label>
+          </div>
+
+          <div class="settings-ref-pref">
+            <div>
+              <div class="settings-ref-pref-name">BIM Integration</div>
+              <div class="settings-ref-pref-sub">Auto-generate Revit-compatible layers for all outputs.</div>
+            </div>
+            <label class="settings-ref-toggle">
+              <input type="checkbox" id="pref-bim" />
+              <span></span>
+            </label>
+          </div>
+
+          <div class="settings-ref-pref">
+            <div>
+              <div class="settings-ref-pref-name">Default Render Engine</div>
+              <div class="settings-ref-pref-sub">Global lighting and texture quality settings.</div>
+            </div>
+            <span class="settings-ref-pill" id="pref-render">Raytrace Extreme (V‑Ray)</span>
+          </div>
+
+          <div class="settings-ref-status" id="settings-status-preferences"></div>
+        </section>
+
+        <!-- Account Control -->
+        <section class="settings-ref-danger">
+          <div class="settings-ref-danger-title">Account Control</div>
+          <p>Once you delete your account, there is no going back. All your projects, models, and data will be permanently removed.</p>
+          <button class="settings-ref-danger-btn" type="button" id="deactivate-btn">DEACTIVATE ACCOUNT</button>
+        </section>
+      </section>
+
+      <!-- PREFERENCES TAB PANEL (simple panel for real tab switching) -->
+      <section class="settings-ref-panelwrap" data-panel="preferences" hidden>
+        <section class="settings-ref-card">
+          <div class="settings-ref-card-title">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Preferences</span>
+          </div>
+          <p class="settings-ref-muted">
+            Use the switches in “Quick Engine Preferences” or extend this panel later with advanced settings.
+          </p>
+          <button class="settings-ref-primarybtn" type="button" id="save-preferences-btn">Save Preferences</button>
+          <div class="settings-ref-status" id="settings-status-preferences-2"></div>
+        </section>
+      </section>
+
+      <!-- SECURITY TAB PANEL -->
+      <section class="settings-ref-panelwrap sec-v2" data-panel="security" hidden>
+  <div class="sec-v2-breadcrumbs">Dashboard / Settings / Security</div>
+
+  <div class="sec-v2-head">
+    <h2>Security Settings</h2>
+    <p>
+      Manage your password, enable two-factor authentication, and monitor your active
+      sessions to keep your Morphopolis account secure.
+    </p>
+  </div>
+
+  <div class="sec-v2-grid">
+    <!-- LEFT -->
+    <div class="sec-v2-col">
+      <!-- Password Management -->
+      <section class="sec-v2-card">
+        <div class="sec-v2-card-title">
+          <span class="sec-v2-icon"><i class="fa-solid fa-key"></i></span>
+          <span>Password Management</span>
+        </div>
+
+        <form id="sec-v2-pass-form" class="sec-v2-form" novalidate>
+          <label class="sec-v2-label" for="sec-v2-current">Current Password</label>
+          <div class="sec-v2-input">
+            <input id="sec-v2-current" type="password" placeholder="" autocomplete="current-password" />
+            <button class="sec-v2-eye" type="button" data-eye="sec-v2-current" aria-label="Show password">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+
+          <div class="sec-v2-row2">
+            <div>
+              <label class="sec-v2-label" for="sec-v2-new">New Password</label>
+              <div class="sec-v2-input">
+                <input id="sec-v2-new" type="password" placeholder="New password" autocomplete="new-password" />
+              </div>
+            </div>
+
+            <div>
+              <label class="sec-v2-label" for="sec-v2-confirm">Confirm Password</label>
+              <div class="sec-v2-input">
+                <input id="sec-v2-confirm" type="password" placeholder="Confirm password" autocomplete="new-password" />
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-v2-strength">
+            <div class="sec-v2-strength-top">
+              <span>Password strength</span>
+              <span class="sec-v2-strength-label" id="sec-v2-strength-label">—</span>
+            </div>
+            <div class="sec-v2-bars" id="sec-v2-bars">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="sec-v2-hint">
+              Must be at least 8 characters and contain 1 uppercase letter, 1 number, and 1 special character.
+            </div>
+          </div>
+
+          <div class="sec-v2-actions">
+            <button class="sec-v2-btn sec-v2-btn-yellow" type="submit" id="sec-v2-update-password">
+              Update Password
+            </button>
+          </div>
+
+          <div class="sec-v2-msg" id="sec-v2-pass-msg" hidden></div>
+        </form>
+      </section>
+
+      <!-- Two-Factor Authentication -->
+      <section class="sec-v2-card">
+        <div class="sec-v2-2fa-head">
+          <div>
+            <div class="sec-v2-card-title" style="margin:0;">
+              <span class="sec-v2-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+              <span>Two-Factor Authentication</span>
+              <span class="sec-v2-pill off" id="sec-v2-2fa-pill">Disabled</span>
+            </div>
+
+            <div class="sec-v2-sub">
+              Add an extra layer of security to your account by requiring a code when signing in.
+            </div>
+          </div>
+
+          <label class="sec-v2-switch" aria-label="Toggle 2FA">
+            <input id="sec-v2-2fa-toggle" type="checkbox" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="sec-v2-2fa-foot">
+          <div class="sec-v2-hint">
+            You’ll need an authenticator app like Google Authenticator.
+          </div>
+          <button class="sec-v2-link" id="sec-v2-configure-2fa" type="button">Configure 2FA</button>
+        </div>
+
+        <div class="sec-v2-msg" id="sec-v2-2fa-msg" hidden></div>
+      </section>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="sec-v2-col">
+      <!-- Active Sessions -->
+      <section class="sec-v2-card">
+        <div class="sec-v2-toprow">
+          <div class="sec-v2-card-title" style="margin:0;">
+            <span>Active Sessions</span>
+          </div>
+          <button class="sec-v2-mini" id="sec-v2-signout-all" type="button">Sign out all</button>
+        </div>
+
+        <div class="sec-v2-sessions" id="sec-v2-sessions"></div>
+        <div class="sec-v2-msg" id="sec-v2-sessions-msg" hidden></div>
+      </section>
+
+      <!-- Account Safety -->
+      <section class="sec-v2-card">
+        <div class="sec-v2-card-title">
+          <span>Account Safety</span>
+        </div>
+
+        <label class="sec-v2-label" for="sec-v2-recovery">Recovery Email</label>
+        <div class="sec-v2-recovery">
+          <input id="sec-v2-recovery" type="email" placeholder="name@company.com" />
+          <button class="sec-v2-mini sec-v2-mini-yellow" id="sec-v2-verify-recovery" type="button">Verify</button>
+        </div>
+
+        <div class="sec-v2-hint" id="sec-v2-recovery-hint">
+          Used to regain access if you lose your password.
+        </div>
+
+        <div class="sec-v2-divider"></div>
+
+        <div class="sec-v2-control">
+          <div>
+            <div class="sec-v2-control-title">Account Control</div>
+            <div class="sec-v2-hint">Deactivate your account and delete all data.</div>
+          </div>
+          <button class="sec-v2-mini sec-v2-mini-danger" id="sec-v2-deactivate" type="button">
+            Deactivate Account
+          </button>
+        </div>
+
+        <div class="sec-v2-msg" id="sec-v2-safety-msg" hidden></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 2FA Modal -->
+  <div class="sec-v2-modal-backdrop" id="sec-v2-2fa-modal" aria-hidden="true">
+    <div class="sec-v2-modal" role="dialog" aria-modal="true" aria-label="Configure 2FA">
+      <div class="sec-v2-modal-head">
+        <div class="sec-v2-modal-title">Configure Two‑Factor Authentication</div>
+        <button class="sec-v2-x" id="sec-v2-2fa-close" type="button" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="sec-v2-modal-body">
+        <div class="sec-v2-hint">
+          Scan the QR in your authenticator app and enter the 6‑digit code.
+        </div>
+
+        <div class="sec-v2-qr">
+          <img id="sec-v2-qr-img" alt="2FA QR" />
+          <div class="sec-v2-qr-meta">
+            <div><b>Account:</b> <span id="sec-v2-qr-email">—</span></div>
+            <div><b>Issuer:</b> Morphopolis</div>
+          </div>
+        </div>
+
+        <label class="sec-v2-label" for="sec-v2-2fa-code">Authenticator Code</label>
+        <div class="sec-v2-input">
+          <input id="sec-v2-2fa-code" type="text" inputmode="numeric" placeholder="123456" />
+        </div>
+
+        <div class="sec-v2-msg" id="sec-v2-2fa-modal-msg" hidden></div>
+      </div>
+
+      <div class="sec-v2-modal-actions">
+        <button class="sec-v2-mini" id="sec-v2-2fa-cancel" type="button">Cancel</button>
+        <button class="sec-v2-mini sec-v2-mini-yellow" id="sec-v2-2fa-enable" type="button">Enable 2FA</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <footer class="settings-ref-footer">
+        <a href="terms.html">TERMS OF SERVICE</a>
+  <a href="privacy.html">PRIVACY POLICY</a>
+        <div class="settings-ref-footnote">© 2026 MORPHOPOLIS AI SYSTEMS V2.4.0</div>
+      </footer>
+    </main>
+  </div>
+
+  <input type="file" id="profile-photo-input" accept="image/*" hidden />
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

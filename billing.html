@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Subscription – Morphopolis</title>
+
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app billing-page billing-checkout-page">
+  <!-- Topbar (matches reference) -->
+  <header class="billing-topbar">
+    <a class="billing-brand" href="dashboard.html">
+      <span class="billing-brand-badge">
+        <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+      </span>
+      <span class="billing-brand-text">Morphopolis</span>
+    </a>
+
+    <div class="billing-topbar-right">
+      <a class="billing-help" href="support.html">
+        <i class="fa-regular fa-circle-question"></i>
+        <span>Help &amp; Support</span>
+      </a>
+
+      <div class="billing-avatar" id="app-user-avatar" aria-label="User avatar"></div>
+    </div>
+  </header>
+
+  <main class="billing-wrap">
+    <div class="billing-head">
+      <h1>Complete your subscription</h1>
+      <p>Unlock the full potential of AI-driven architecture. Securely upgrade to your selected plan.</p>
+    </div>
+
+    <div class="billing-grid">
+      <!-- LEFT: plan summary -->
+      <section class="billing-left">
+        <div class="billing-panel billing-summary">
+          <div class="billing-summary-top">
+            <div>
+              <div class="billing-plan-title" id="bill-plan-title">Professional Plan</div>
+              <div class="billing-plan-sub" id="bill-plan-sub">Perfect for independent architects</div>
+            </div>
+
+            <span class="billing-popular" id="bill-popular-pill" hidden>MOST POPULAR</span>
+          </div>
+
+          <div class="billing-price-row">
+            <div class="billing-price">
+              <span class="billing-price-value" id="bill-price">$29</span>
+              <span class="billing-price-period" id="bill-period">/ month</span>
+            </div>
+          </div>
+
+          <ul class="billing-features" id="bill-features"></ul>
+
+          <div class="billing-summary-divider"></div>
+
+          <div class="billing-total">
+            <span>Total due today</span>
+            <strong id="bill-due">$29.00</strong>
+          </div>
+
+          <button class="billing-change" id="bill-change-plan" type="button">
+            Change plan <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="billing-trust">
+          <div class="billing-trust-item">
+            <i class="fa-solid fa-lock"></i> <span>SSL SECURE</span>
+          </div>
+          <div class="billing-trust-item">
+            <i class="fa-solid fa-shield"></i> <span>TRUSTED</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: cycle + payment -->
+      <section class="billing-right">
+        <!-- Billing cycle -->
+        <div class="billing-panel" id="billing-cycle-panel">
+          <div class="billing-panel-title">BILLING CYCLE</div>
+
+          <div class="billing-cycle">
+            <button class="billing-cycle-btn is-active" type="button" data-cycle="monthly">Monthly</button>
+
+            <button class="billing-cycle-btn" type="button" data-cycle="yearly">
+              Yearly <span class="billing-save">SAVE 20%</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Payment -->
+        <div class="billing-panel" id="billing-payment-panel">
+          <div class="billing-panel-title">PAYMENT METHOD</div>
+          <!-- FREE PLAN PANEL (shown only when Starter/Free is selected) -->
+<div class="billing-free" id="billing-free" hidden>
+  <div class="billing-free-title">Starter is free — no payment required</div>
+  <div class="billing-free-sub">
+    Activate the Starter plan and start designing immediately. You can upgrade anytime.
+  </div>
+
+  <div class="billing-free-checks">
+    <div><i class="fa-solid fa-circle-check"></i> No credit card required</div>
+    <div><i class="fa-solid fa-circle-check"></i> Instant access to dashboard</div>
+    <div><i class="fa-solid fa-circle-check"></i> Upgrade anytime from Billing</div>
+  </div>
+</div>
+
+          <div class="billing-method-tabs">
+            <button class="billing-method-tab is-active" type="button" data-method="card">
+              <i class="fa-regular fa-credit-card"></i> Credit Card
+            </button>
+            <button class="billing-method-tab" type="button" data-method="upi">
+              <i class="fa-solid fa-building-columns"></i> UPI / NetBanking
+            </button>
+          </div>
+
+          <div class="billing-line"></div>
+
+          <form id="billing-form" class="billing-form" novalidate>
+            <!-- CARD FIELDS -->
+            <div class="billing-fields" data-pane="card">
+              <label class="billing-label" for="bill-card-name">NAME ON CARD</label>
+              <div class="billing-input">
+                <i class="fa-regular fa-user"></i>
+                <input id="bill-card-name" type="text" placeholder="John Architect" autocomplete="cc-name" />
+              </div>
+
+              <label class="billing-label" for="bill-card-number">CARD NUMBER</label>
+              <div class="billing-input">
+                <i class="fa-regular fa-credit-card"></i>
+                <input id="bill-card-number" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" autocomplete="cc-number" />
+                <span class="billing-card-badges">
+                  <span class="billing-card-badge" id="bill-card-brand">VISA</span>
+                  <span class="billing-card-badge" id="bill-card-brand2">MC</span>
+                </span>
+              </div>
+
+              <div class="billing-row">
+                <div>
+                  <label class="billing-label" for="bill-exp">EXPIRY DATE</label>
+                  <div class="billing-input">
+                    <input id="bill-exp" type="text" inputmode="numeric" placeholder="MM / YY" autocomplete="cc-exp" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="billing-label" for="bill-cvc">CVC / CVV</label>
+                  <div class="billing-input">
+                    <input id="bill-cvc" type="password" inputmode="numeric" placeholder="123" autocomplete="cc-csc" />
+                    <button class="billing-helpicon" type="button" title="3–4 digits on your card">
+                      <i class="fa-regular fa-circle-question"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UPI / NETBANKING -->
+            <div class="billing-fields" data-pane="upi" hidden>
+              <label class="billing-label" for="bill-upi-id">UPI ID</label>
+              <div class="billing-input">
+                <i class="fa-solid fa-qrcode"></i>
+                <input id="bill-upi-id" type="text" placeholder="name@bank" />
+              </div>
+
+              <label class="billing-label" for="bill-bank">BANK</label>
+              <div class="billing-input">
+                <i class="fa-solid fa-building-columns"></i>
+                <select id="bill-bank">
+                  <option value="">Select bank</option>
+                  <option>HDFC</option>
+                  <option>ICICI</option>
+                  <option>SBI</option>
+                  <option>Axis</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="billing-line"></div>
+            <label class="billing-terms">
+  <input type="checkbox" id="bill-terms" />
+  <span>
+    I agree to the
+    <a href="terms.html" class="billing-link" target="_blank" rel="noopener noreferrer">Terms</a>
+    and
+    <a href="privacy.html" class="billing-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+  </span>
+</label>
+
+            <button class="billing-confirm" id="bill-confirm" type="submit">
+              Confirm &amp; Subscribe <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="billing-secure">
+              <i class="fa-solid fa-lock"></i>
+              <span>Your transaction is secured with 256-bit SSL encryption.</span>
+            </div>
+
+            <div class="billing-error" id="bill-error" hidden></div>
+          </form>
+        </div>
+
+        <div class="billing-legal">
+          By confirming your subscription, you allow Morphopolis to charge your selected payment method for future payments in accordance with their terms.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Change plan modal -->
+  <div class="billing-modal-backdrop" id="bill-plan-modal" aria-hidden="true">
+    <div class="billing-modal" role="dialog" aria-modal="true" aria-label="Change plan">
+      <div class="billing-modal-head">
+        <div>
+          <div class="billing-modal-title">Change plan</div>
+          <div class="billing-modal-sub">Select the plan you want to subscribe to.</div>
+        </div>
+        <button class="billing-x" id="bill-modal-close" type="button" aria-label="Close">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+
+      <div class="billing-plan-grid" id="bill-plan-grid"></div>
+
+      <div class="billing-modal-actions">
+        <button class="billing-btn ghost" id="bill-modal-cancel" type="button">Cancel</button>
+        <button class="billing-btn primary" id="bill-modal-save" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="billing-toast-wrap" id="billing-toast-wrap"></div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app team-page">
+  <!-- Sidebar (unchanged) -->
+  <aside class="app-sidebar" id="app-sidebar">
+    <div class="app-sidebar-header">
+      <a href="index.html" class="logo">
+        <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" class="logo-icon" />
+        <span>MORPHOPOLIS</span>
+      </a>
+      <button class="app-sidebar-close" id="app-sidebar-close" aria-label="Close sidebar">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="app-nav">
+      <a href="dashboard.html" class="app-nav-item"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+      <a href="new-project.html" class="app-nav-item"><i class="fas fa-pen-nib"></i><span>New Project</span></a>
+      <a href="library.html" class="app-nav-item"><i class="fas fa-folder-open"></i><span>Library</span></a>
+      <a href="settings.html" class="app-nav-item"><i class="fas fa-cog"></i><span>Settings</span></a>
+    </nav>
+  </aside>
+
+  <div class="app-main">
+    <!-- Topbar with Team/Billing -->
+    <header class="app-topbar">
+      <div class="app-topbar-left">
+        <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <a href="dashboard.html" class="app-brand-logo">
+          <span class="app-brand-icon"><img src="./img/logo-morphopolis.png" alt="Morphopolis logo" /></span>
+          <span class="app-brand-text">MORPHOPOLIS</span>
+        </a>
+      </div>
+
+      <nav class="app-topbar-nav">
+        <a href="dashboard.html">My Projects</a>
+        <a href="team.html">Team</a>
+        <a href="billing.html">Billing</a>
+        <a href="settings.html" class="app-topbar-account">Account</a>
+      </nav>
+    </header>
+
+   <main class="app-content team-ref">
+  <!-- Header row -->
+  <div class="team-ref-head">
+    <div>
+      <h1>Team Management</h1>
+      <div class="team-ref-subrow">
+        <span class="team-plan" id="team-plan-label">— Plan</span>
+        <span class="team-dot">•</span>
+        <span class="team-seats" id="team-seats-label">— seats available</span>
+      </div>
+    </div>
+
+    <div class="team-ref-actions">
+      <!-- Keep your existing Sent Requests button + badge -->
+      <button class="team-btn team-btn-ghost team-btn-badge" id="open-sent-requests" type="button">
+        <i class="fa-regular fa-paper-plane"></i>
+        Sent requests
+        <span class="team-mini-badge" id="invite-count-badge">0</span>
+      </button>
+
+      <button class="team-btn team-btn-primary" id="open-invite-modal" type="button">
+        <i class="fa-solid fa-user-plus"></i>
+        Invite Member
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <section class="team-stats">
+    <div class="team-stat-card">
+      <div class="team-stat-label">Total Members</div>
+      <div class="team-stat-value">
+        <span id="team-total-members">0</span>
+        <span class="team-stat-muted">/ <span id="team-seat-limit">0</span></span>
+      </div>
+    </div>
+
+    <div class="team-stat-card">
+      <div class="team-stat-label">Active Projects</div>
+      <div class="team-stat-value" id="team-active-projects">0</div>
+    </div>
+
+    <div class="team-stat-card">
+      <div class="team-stat-label">Your Role</div>
+      <div class="team-stat-value">
+        <span id="team-your-role">—</span>
+        <i class="fa-solid fa-gear team-gear"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members table -->
+  <section class="team-table-card">
+    <div class="team-table-head">
+      <div>MEMBER</div>
+      <div>ROLE</div>
+      <div>STATUS</div>
+      <div class="team-table-actions-col">ACTIONS</div>
+    </div>
+
+    <!-- JS renders rows here -->
+    <div class="team-table-body" id="team-table"></div>
+  </section>
+
+  <!-- Seat usage -->
+  <section class="team-seat-card">
+    <div class="team-seat-top">
+      <div>
+        <div class="team-seat-title">Seat Usage</div>
+        <div class="team-seat-sub" id="team-seat-text">
+          You have used 0 of 0 available seats.
+        </div>
+      </div>
+
+      <a class="team-seat-billing" href="billing.html">
+        Manage Billing <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="team-seat-bar">
+      <div class="team-seat-fill" id="team-seat-progress" style="width:0%"></div>
+    </div>
+
+    <div class="team-seat-foot">
+      <div>USED: <span id="team-seat-used">0</span> SEATS</div>
+      <div>REMAINING: <span id="team-seat-remaining">0</span> SEAT</div>
+    </div>
+  </section>
+
+  <!-- SENT REQUESTS MODAL (keep your current IDs so your logic stays) -->
+  <div class="pro-modal-backdrop" id="sent-backdrop" aria-hidden="true">
+    <div class="pro-modal" role="dialog" aria-modal="true" aria-label="Sent requests">
+      <div class="pro-modal-head">
+        <div>
+          <div class="pro-modal-title">Sent requests</div>
+          <div class="pro-modal-sub" id="invite-count">0 pending</div>
+        </div>
+        <button class="pro-icon-x" id="close-sent-requests" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="pro-modal-body">
+        <div class="pro-table" id="invite-table"></div>
+      </div>
+
+      <div class="pro-modal-actions">
+        <button class="pro-btn pro-btn-ghost" id="close-sent-requests-2">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVITE MODAL (updated to match your 2nd reference image) -->
+  <div class="pro-modal-backdrop team-invite-backdrop" id="invite-backdrop" aria-hidden="true">
+    <div class="team-invite-modal" role="dialog" aria-modal="true" aria-label="Invite team member">
+      <div class="team-invite-head">
+        <div class="team-invite-title">
+          <span class="team-invite-icon"><i class="fa-solid fa-user-plus"></i></span>
+          <span>Invite Team Member</span>
+        </div>
+
+        <button class="team-invite-x" id="close-invite-modal" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="team-invite-sub">
+        Collaborate on 2D floor plans and 3D architectural models in real-time.
+      </div>
+
+      <div class="team-invite-body">
+        <label class="team-invite-label">Email Address</label>
+        <input class="team-invite-input" id="invite-email" type="email" placeholder="architect@example.com" />
+
+        <label class="team-invite-label" style="margin-top:12px;">Assign Role</label>
+        <select class="team-invite-input" id="invite-role">
+          <option value="Editor">Editor – Can edit plans and models</option>
+          <option value="Viewer">Viewer – Can view only</option>
+          <option value="Admin">Admin – Manage workspace</option>
+        </select>
+
+        <div class="team-invite-hint" id="invite-role-hint">
+          Editors can modify architectural layouts but cannot manage billing.
+        </div>
+
+        <label class="team-invite-label" style="margin-top:12px;">Personal Message (Optional)</label>
+        <textarea class="team-invite-input" id="invite-message" rows="4"
+          placeholder="Join our project to review the latest structural updates."></textarea>
+
+        <div class="team-invite-note" id="invite-seat-note">
+          This invitation will consume 1 seat from your plan.
+        </div>
+      </div>
+
+      <div class="team-invite-actions">
+        <button class="team-btn team-btn-ghost" id="cancel-invite" type="button">Cancel</button>
+        <button class="team-btn team-btn-primary" id="send-invite" type="button">
+          Send Invitation <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pro-toast-wrap" id="pro-toast-wrap"></div>
+</main>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

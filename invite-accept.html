@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accept Invite – Morphopolis</title>
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body class="app invite-accept-page">
+  <div class="app-main" style="margin-left:0; width:100%;">
+    <main class="app-content pro-page">
+      <div class="pro-panel" style="max-width:620px;margin:40px auto;">
+        <div class="pro-panel-head">
+          <div class="pro-panel-title">Team Invitation</div>
+          <div class="pro-panel-sub" id="invite-info">Loading invite…</div>
+        </div>
+
+        <p style="color:rgba(148,163,184,.92); margin-top:8px;">
+          Accept this invitation to join the Morphopolis workspace.
+        </p>
+
+        <div class="pro-panel-actions" style="justify-content:flex-start;">
+          <button class="pro-btn pro-btn-primary" id="accept-invite-btn">
+            Accept Invite
+          </button>
+          <button class="pro-btn pro-btn-ghost" id="decline-invite-btn">
+            Decline
+          </button>
+        </div>
+      </div>
+
+      <div class="pro-toast-wrap" id="pro-toast-wrap"></div>
+    </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

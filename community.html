@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Forum – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app community-page">
+  <header class="support-topbar">
+    <div class="support-topbar-left">
+      <div class="support-brand">
+        <div class="support-brand-badge">
+          <img src="./img/logo-morphopolis.png" alt="Morphopolis logo">
+        </div>
+        <div class="support-brand-text">Morphopolis</div>
+      </div>
+    </div>
+
+    <nav class="support-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="library.html">Library</a>
+      <a href="support.html">Support</a>
+      <a class="active" href="community.html">Community</a>
+    </nav>
+
+    <div class="support-icons">
+<a class="support-icon-btn" href="notifications.html" aria-label="Notifications" title="Notifications">
+  <i class="far fa-bell"></i>
+</a>      <a class="support-icon-btn" href="settings.html" aria-label="Settings"><i class="fas fa-cog"></i></a>
+      <div class="support-mini-avatar">J</div>
+    </div>
+  </header>
+
+  <main class="pro-hub">
+    <div class="pro-hub-head">
+      <div>
+        <h1>Community Forum</h1>
+        <p>Ask questions, share workflows, and discuss Morphopolis features with other designers.</p>
+      </div>
+
+      <div class="pro-hub-actions">
+        <div class="pro-hub-search">
+          <i class="fas fa-search"></i>
+          <input id="forum-search" type="text" placeholder="Search topics..." />
+        </div>
+        <button class="pro-btn pro-btn-primary" id="new-post-btn" type="button">
+          New post <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </div>
+
+    <section class="pro-panel">
+      <div class="pro-panel-head">
+        <div class="pro-panel-title">Topics</div>
+        <div class="pro-panel-sub" id="forum-count">0 topics</div>
+      </div>
+
+      <div class="forum-list" id="forum-list"></div>
+    </section>
+
+    <!-- New Post Modal -->
+    <div class="pro-modal-backdrop" id="forum-modal">
+      <div class="pro-modal" role="dialog" aria-modal="true" aria-label="Create new post">
+        <div class="pro-modal-head">
+          <div>
+            <div class="pro-modal-title">Create post</div>
+            <div class="pro-modal-sub">Share a question or a workflow with the community.</div>
+          </div>
+          <button class="pro-icon-x" id="forum-modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="pro-modal-body">
+          <label class="pro-label">Title</label>
+          <input class="pro-input" id="post-title" type="text" placeholder="e.g., Best export settings for IFC?" />
+
+          <label class="pro-label" style="margin-top:12px;">Category</label>
+          <select class="pro-input" id="post-category">
+            <option>How-to</option>
+            <option>BIM</option>
+            <option>Rendering</option>
+            <option>Bug / Issue</option>
+            <option>Feature Request</option>
+          </select>
+
+          <label class="pro-label" style="margin-top:12px;">Body</label>
+          <textarea class="pro-input" id="post-body" rows="5" placeholder="Write your post..."></textarea>
+        </div>
+
+        <div class="pro-modal-actions">
+          <button class="pro-btn pro-btn-ghost" id="post-cancel" type="button">Cancel</button>
+          <button class="pro-btn pro-btn-primary" id="post-publish" type="button">Publish</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pro-toast-wrap" id="pro-toast-wrap"></div>
+    <!-- Topic Modal (opens when clicking replies) -->
+<div class="topic-modal-backdrop" id="topic-modal">
+  <div class="topic-modal" role="dialog" aria-modal="true" aria-label="Topic details">
+    <div class="topic-modal-head">
+      <div>
+        <h3 class="topic-title" id="topic-title">Topic</h3>
+        <div class="topic-sub" id="topic-sub"></div>
+      </div>
+      <button class="pro-icon-x" id="topic-close" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="topic-body" id="topic-body"></div>
+
+    <div class="reply-list" id="reply-list"></div>
+
+    <div class="reply-compose">
+      <label class="pro-label">Add reply</label>
+      <textarea id="reply-input" rows="3" placeholder="Write a reply..."></textarea>
+      <div style="display:flex;justify-content:flex-end;gap:10px;">
+        <button class="pro-btn pro-btn-ghost" type="button" id="reply-cancel">Cancel</button>
+        <button class="pro-btn pro-btn-primary" type="button" id="reply-send">Reply</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

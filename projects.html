@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – Morphopolis</title>
+
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app projects-page">
+  <!-- Sidebar is injected by your initUnifiedSidebar() -->
+
+  <div class="app-main">
+    <!-- Topbar -->
+    <header class="app-topbar">
+      <div class="app-topbar-left">
+        <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <a href="dashboard.html" class="app-brand-logo">
+          <span class="app-brand-icon">
+            <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+          </span>
+          <span class="app-brand-text">MORPHOPOLIS</span>
+        </a>
+      </div>
+
+      <div class="app-topbar-center">
+        <div class="app-search">
+          <i class="fas fa-search"></i>
+          <input type="text" id="projects-search" placeholder="Search projects..." />
+          <span class="app-search-logo">
+            <img src="./img/logo-morphopolis.png" alt="" />
+          </span>
+        </div>
+      </div>
+
+      <div class="app-topbar-right">
+        <div class="app-user">
+          <div class="app-user-avatar" id="app-user-avatar"></div>
+          <div class="app-user-info">
+            <span class="app-user-name" id="app-user-name"></span>
+            <a href="settings.html#profile" class="app-user-role app-account-link">ACCOUNT SETTINGS</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-content">
+      <section class="projects-head">
+        <div>
+          <h1 class="projects-title">Projects</h1>
+          <p class="projects-sub">All your saved and generated work in one place.</p>
+        </div>
+
+        <a class="btn-yellow" href="new-project.html">
+          + Create New Project
+        </a>
+      </section>
+
+      <div class="projects-tabs" id="projects-tabs">
+        <button class="projects-tab active" type="button" data-filter="all">
+          All (<span id="projects-count-all">0</span>)
+        </button>
+        <button class="projects-tab" type="button" data-filter="in-progress">In Progress</button>
+        <button class="projects-tab" type="button" data-filter="approved">Approved</button>
+        <button class="projects-tab" type="button" data-filter="completed">Completed</button>
+        <button class="projects-tab" type="button" data-filter="archive">Archive</button>
+      </div>
+
+      <section class="app-projects-grid" id="projects-grid"></section>
+
+      <footer class="app-footer">
+        <span id="projects-summary">Showing 0 projects</span>
+        <span>MORPHOPOLIS PLATFORM</span>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

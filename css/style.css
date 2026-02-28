@@ -178,7 +178,24 @@ h4 { font-size: 1.125rem; }
     display: flex;
     align-items: center;
     gap: 10px;
-     letter-spacing: -0.03em;
+    letter-spacing: -0.03em;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+/* Logo icon overlay – applied on all pages (header, auth, footer) */
+.logo-icon {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+
+    padding: 4px;                          /* space around the icon */
+    border-radius:8px;                  /* circular overlay */
+    background: rgba(15, 23, 42, 0.7);     /* transparent dark glass */
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 .nav-container {
     background: var(--nav-bg);
@@ -548,7 +565,7 @@ h4 { font-size: 1.125rem; }
     position: absolute;
     bottom: var(--spacing-lg);
     left: var(--spacing-lg);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     color: #9CA3AF;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -2358,4 +2375,1025 @@ body.auth-page .auth-close:hover {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(2px);
     width: 400px;            /* Safari */
+}
+/* =========================
+   PROFESSIONAL-GRADE SECTION
+   ========================= */
+
+/* Reduce vertical padding so it fits better in the viewport */
+.professional-grade.section-padding {
+padding: 0 !important;
+    min-height: 100vh;}
+
+/* Make container full-width so image can touch the left edge */
+.professional-grade .container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;                        /* image touches left edge */
+    padding-right: var(--spacing-lg);       /* keep some right padding */
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);  /* left > right */
+    gap: 40px;
+    align-items:stretch; 
+}
+
+/* Left image: from left edge to middle, fixed height */
+.professional-grade-image {
+    height:  100%;                          /* adjust 380–440px if needed */
+    border-radius: 0;           /* rounded only on right side */
+    overflow: hidden;
+}
+
+/* Make the image fill that box without stretching */
+.professional-grade-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* On tablets/phones, relax height a bit */
+@media (max-width: 1024px) {
+    .professional-grade .container {
+        grid-template-columns: 1fr;
+        padding-left: var(--spacing-lg);
+    }
+
+    .professional-grade-image {
+        height: auto;
+        border-radius: 0px;
+    }
+}
+/* =========================================
+   PROFESSIONAL‑GRADE – RIGHT PANEL STYLING
+   ========================================= */
+
+/* Dark blue background on the whole section */
+.professional-grade {
+    background-color: #020617;
+}
+
+/* Ensure grid still works but give right side a bit more width */
+.professional-grade .container {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+}
+
+/* Right panel: full-height dark-blue block */
+.professional-grade-content {
+    align-self: stretch;
+    background-color: #020617;
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Heading styling */
+.professional-grade-content h2 {
+    color: #F9FAFB;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+/* Subtext styling */
+.professional-grade-content p {
+    max-width: 420px;
+    font-size: 0.98rem;
+    color: #9CA3AF;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+/* Features: two columns with vertical lines on the left of each block */
+.professional-grade-features {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px 40px;
+    margin-bottom: 40px;
+}
+
+.professional-grade-features > div {
+    padding-left: 16px;
+    border-left: 1px solid rgba(148, 163, 184, 0.6);
+
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E5E7EB;
+}
+
+/* Orange outline "VIEW DOCUMENTATION" button */
+.professional-grade .btn-outline-dark {
+    background: transparent;
+    border-color: #F59E0B;
+    color: #F9FAFB;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 2px;
+}
+
+.professional-grade .btn-outline-dark:hover {
+    background-color: #F59E0B;
+    color: #111827;
+}
+/* =========================================
+   PRICING – more compact cards & section
+   ========================================= */
+
+/* Reduce vertical padding so section fits better on screen */
+#pricing.pricing.section-padding {
+    padding: 40px 0 48px;   /* was much larger */
+}
+
+/* Slightly narrower layout and smaller gaps */
+.pricing-cards {
+    max-width: 900px;
+    gap: 16px;
+}
+.pricing h2 {
+    margin-bottom: 6px;      /* global h2 gave ~32px; much tighter here */
+    font-size: 2.1rem;
+}
+/* Smaller cards: less padding, smaller radius */
+.pricing-card {
+    padding: 16px 16px 14px;
+    border-radius: 10px;
+}
+
+/* Smaller headline price */
+.pricing-card .price {
+ margin-bottom: 12px;
+    font-size: 0.88rem;}
+
+/* Tighter description and features */
+.pricing-card .description {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+}
+.pricing-card .features {
+    margin-bottom: 12px;
+}
+.pricing-card .features li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+/* Smaller button */
+.pricing-card .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+}
+/* DESIGN EXAMPLES – full width, NO CROP */
+.design-examples .example-carousel-item {
+    padding-bottom: 0 !important;      /* no fixed ratio box */
+}
+
+.design-examples .example-carousel-item img {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;           /* natural aspect ratio */
+    max-height: none !important;       /* remove previous limit */
+    object-fit: contain !important;    /* show whole image, no cropping */
+    display: block;
+}
+/* =========================================
+   FOOTER – compact layout & right‑aligned link columns
+   ========================================= */
+
+/* Less vertical padding overall */
+.footer {
+    padding: 32px 0 24px;
+}
+
+/* Adjust grid so brand is narrower, link columns sit more to the right,
+   and gaps between them are smaller */
+.footer .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+    column-gap: 20px;                 /* reduce horizontal gap */
+    row-gap: 16px;
+}
+
+/* Brand column slightly less wide */
+.footer-brand {
+    padding-right: 16px;
+}
+
+/* Link columns grouped more tightly, aligned toward the right */
+.footer-links {
+    text-align: left;
+}
+
+/* Bottom row closer to the columns */
+.footer-bottom {
+    margin-top: 16px;                 /* was larger */
+    padding-top: 12px;
+}
+/* =========================================
+   FOOTER – move link columns right & tighten gaps
+   ========================================= */
+
+@media (min-width: 1024px) {
+  .footer .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 24px;           /* smaller gap between columns */
+    row-gap: 16px;
+  }
+
+  /* Brand stays on the left, takes remaining space */
+  .footer-brand {
+    flex: 1 1 260px;
+    margin-right: auto;         /* pushes other columns to the right */
+    padding-right: 16px;
+  }
+
+  /* Product / Company / Legal grouped on the right */
+  .footer-links {
+    flex: 0 0 auto;
+    min-width: 120px;
+    text-align: left;
+  }
+
+  /* Bottom row spans full width, closer to columns */
+  .footer-bottom {
+    flex: 0 0 100%;
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+}
+/* Small logo image inside .logo links */
+.logo-icon {
+    height: 28px;
+    width: auto;
+    display: inline-block;
+}
+/* Footer brand logo – align icon and text on the same line */
+.footer-brand .logo {
+    display: inline-flex;
+    align-items: center;   /* vertical center for icon + text */
+    gap: 8px;
+    margin-bottom: 8px;    /* keep a small gap to the paragraph */
+}
+
+/* Make the text sit nicely centered next to the icon */
+.footer-brand .logo span {
+    line-height: 1;        /* avoid extra vertical space */
+    display: inline-block;
+}
+/* Slide animation for project grid when switching tabs */
+.app-projects-grid {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.app-projects-grid.slide-out {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.app-projects-grid.slide-in {
+  transform: translateX(30px);
+  opacity: 0;
+}
+/* =========================================================
+   DESIGN EXAMPLES (#projects) — FULL WIDTH (HEADER + CAROUSEL)
+   Paste at END of css/style.css
+   ========================================================= */
+
+/* Make this section full-bleed */
+#projects.design-examples .container{
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;  /* remove the centered container padding */
+}
+
+/* Keep some nice page padding for the header only */
+#projects.design-examples .section-header{
+  padding: 0 32px;        /* adjust to 24px/40px if you want */
+  margin-bottom: 14px !important;
+}
+
+/* Full-width carousel wrapper */
+#projects.design-examples .example-carousel{
+  width: 100% !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+/* Make each slide a fixed visual height and full width */
+#projects.design-examples .example-carousel-item{
+  position: relative !important;
+  min-width: 100% !important;
+   height: auto !important;
+  padding-bottom: 0 !important;      /* remove old ratio hacks */
+}
+
+/* Image fills the entire slide */
+#projects.design-examples .example-carousel-item img{
+   position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;            /* no height cutting */
+  object-fit: cover !important;       /* still fills width nicely */
+  border-radius: 0 !important;
+}
+
+/* Overlay stays on top */
+#projects.design-examples .example-overlay{
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  z-index: 2;
+}
+
+@media (max-width: 768px){
+  #projects.design-examples .section-header{ padding: 0 16px; }
+  #projects.design-examples .example-overlay{
+    left: 16px; right: 16px; bottom: 16px; max-width: none;
+  }
+}
+/* =========================================================
+   LEGAL PAGES (Terms / Privacy) — Professional Layout
+   ========================================================= */
+body.legal-page{
+  background: radial-gradient(900px circle at 15% -10%, rgba(245,158,11,.12), transparent 55%),
+              radial-gradient(900px circle at 85% 10%, rgba(59,130,246,.10), transparent 58%),
+              linear-gradient(180deg, #0C1222, #050816);
+  color: #E5E7EB;
+  min-height: 100vh;
+}
+
+.legal-topbar{
+  height: 58px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: rgba(2,6,23,.65);
+  border-bottom: 1px solid rgba(148,163,184,.12);
+  backdrop-filter: blur(10px);
+}
+
+.legal-topbar-left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.legal-back{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color: rgba(229,231,235,.92);
+  cursor:pointer;
+}
+.legal-back:hover{ border-color: rgba(245,158,11,.35); color: #f59e0b; }
+
+.legal-brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color: #F9FAFB;
+  font-weight: 750;
+}
+.legal-brand-badge{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #facc15;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.legal-brand-badge img{
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display:block;
+}
+
+.legal-topbar-right{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+.legal-link{
+  color: rgba(148,163,184,.92);
+  text-decoration:none;
+  font-weight: 650;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.legal-link:hover{ background: rgba(148,163,184,.08); color: #F9FAFB; }
+
+.legal-print{
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color: rgba(229,231,235,.92);
+  cursor:pointer;
+  font-weight: 650;
+}
+.legal-print:hover{ border-color: rgba(245,158,11,.35); color: #f59e0b; }
+
+.legal-wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 18px 46px;
+}
+
+.legal-hero h1{
+  margin: 8px 0 8px;
+  font-size: 2.4rem;
+  font-weight: 650;
+}
+.legal-sub{
+  color: rgba(148,163,184,.92);
+  max-width: 780px;
+  margin: 0 0 10px;
+}
+.legal-meta{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  color: rgba(148,163,184,.82);
+  font-size: .9rem;
+}
+.legal-dot{ opacity: .6; }
+
+.legal-layout{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 280px minmax(0,1fr);
+  gap: 16px;
+  align-items:start;
+}
+
+.legal-toc{
+  position: sticky;
+  top: 76px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  padding: 14px;
+}
+
+.legal-toc-title{
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(148,163,184,.85);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.legal-toc-links{
+  display:grid;
+  gap: 8px;
+}
+.legal-toc-links a{
+  text-decoration:none;
+  color: rgba(229,231,235,.92);
+  font-weight: 550;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+.legal-toc-links a:hover{
+  background: rgba(148,163,184,.08);
+}
+.legal-toc-links a.active{
+  background: rgba(245,158,11,.12);
+  border-color: rgba(245,158,11,.18);
+  color: #f59e0b;
+}
+
+.legal-article{
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.45);
+  padding: 18px;
+}
+
+.legal-section{
+  padding: 10px 0 16px;
+  border-top: 1px solid rgba(148,163,184,.10);
+}
+.legal-section:first-child{ border-top: none; padding-top: 0; }
+
+.legal-section h2{
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+.legal-section p, .legal-section li{
+  color: rgba(229,231,235,.92);
+  line-height: 1.65;
+}
+.legal-section a{ color: #f59e0b; text-decoration: none; }
+.legal-section a:hover{ text-decoration: underline; }
+
+.legal-callout{
+  margin-top: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(59,130,246,.22);
+  background: rgba(30,64,175,.16);
+  padding: 12px;
+  color: rgba(229,231,235,.92);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .legal-layout{ grid-template-columns: 1fr; }
+  .legal-toc{ position: static; }
+}
+@media print{
+  .legal-topbar, .legal-toc{ display:none !important; }
+  body.legal-page{ background: #fff !important; color:#111 !important; }
+  .legal-article{ border:none !important; background:#fff !important; }
+}
+/* =========================================================
+   COMPANY PAGES (About / Careers / Blog) — PRO UI
+   Scoped under body.company-page
+   ========================================================= */
+
+body.company-page{
+  background:
+    radial-gradient(900px circle at 15% -10%, rgba(245,158,11,.12), transparent 55%),
+    radial-gradient(900px circle at 85% 10%, rgba(59,130,246,.10), transparent 58%),
+    linear-gradient(180deg, #0C1222, #050816);
+  color: #E5E7EB;
+  min-height: 100vh;
+}
+
+body.company-page *{ box-sizing: border-box; }
+
+.company-topbar{
+  height: 60px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: rgba(2,6,23,.65);
+  border-bottom: 1px solid rgba(148,163,184,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.company-topbar-left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.company-back{
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color: rgba(229,231,235,.92);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.company-back:hover{
+  border-color: rgba(245,158,11,.35);
+  color: #f59e0b;
+}
+
+.company-brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color: #F9FAFB;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.company-brand-badge{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #facc15;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.company-brand-badge img{
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display:block;
+}
+
+.company-nav{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+.company-nav a{
+  color: rgba(148,163,184,.92);
+  text-decoration:none;
+  font-weight: 600;
+  font-size: .92rem;
+  padding: 9px 10px;
+  border-radius: 10px;
+}
+.company-nav a:hover{
+  background: rgba(148,163,184,.08);
+  color: #F9FAFB;
+}
+.company-nav a.active{
+  color: #facc15;
+  background: rgba(250,204,21,.10);
+  border: 1px solid rgba(250,204,21,.14);
+}
+
+.company-topbar-right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.company-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color: rgba(229,231,235,.92);
+  cursor:pointer;
+  text-decoration:none;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.company-btn:hover{
+  border-color: rgba(250,204,21,.22);
+  color: #facc15;
+}
+.company-btn.primary{
+  background: linear-gradient(180deg, #fde047, #facc15);
+  border-color: rgba(250,204,21,.25);
+  color: #111827;
+  font-weight: 800;
+}
+.company-btn.primary:hover{ filter: brightness(1.03); }
+
+.company-wrap{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 18px 56px;
+}
+
+.company-hero{
+  border-radius: 18px;
+  border: 1px solid rgba(148,163,184,.14);
+  background:
+    radial-gradient(1200px circle at 10% 10%, rgba(250,204,21,.12), transparent 55%),
+    rgba(2,6,23,.55);
+  padding: 18px;
+  box-shadow: 0 18px 70px rgba(0,0,0,.35);
+}
+
+.company-hero h1{
+  margin: 0 0 10px;
+  font-size: 2.4rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.company-hero p{
+  margin: 0;
+  color: rgba(148,163,184,.92);
+  max-width: 820px;
+  line-height: 1.6;
+  font-size: .98rem;
+}
+
+.company-grid{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+
+.company-card{
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  box-shadow: 0 18px 70px rgba(0,0,0,.25);
+  padding: 14px;
+  min-width: 0;
+}
+.company-card .title{
+  font-weight: 650;
+  margin-bottom: 6px;
+}
+.company-card .sub{
+  color: rgba(148,163,184,.9);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.company-stats{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+.stat{
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  padding: 14px;
+}
+.stat .label{
+  color: rgba(148,163,184,.86);
+  font-size: .86rem;
+  margin-bottom: 8px;
+}
+.stat .value{
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+
+.section-head{
+  margin-top: 22px;
+  display:flex;
+  justify-content: space-between;
+  align-items:flex-end;
+  gap: 12px;
+}
+.section-head h2{
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 650;
+}
+.section-head p{
+  margin: 8px 0 0;
+  color: rgba(148,163,184,.92);
+  max-width: 780px;
+}
+
+/* Timeline */
+.timeline{
+  margin-top: 12px;
+  display:grid;
+  gap: 10px;
+}
+.timeline-item{
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  padding: 14px;
+  display:flex;
+  gap: 12px;
+}
+.timeline-dot{
+  width: 10px; height: 10px;
+  border-radius: 999px;
+  background: #facc15;
+  box-shadow: 0 0 0 6px rgba(250,204,21,.08);
+  margin-top: 6px;
+  flex: 0 0 auto;
+}
+.timeline-item .t{
+  font-weight: 650;
+}
+.timeline-item .m{
+  margin-top: 6px;
+  color: rgba(148,163,184,.9);
+  line-height: 1.55;
+  font-size: .92rem;
+}
+
+/* Search + filters (careers/blog) */
+.toolbar{
+  margin-top: 14px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items:center;
+}
+
+.searchbox{
+  flex: 1;
+  min-width: 280px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color: rgba(148,163,184,.9);
+}
+.searchbox input{
+  width: 100%;
+  border:none;
+  outline:none;
+  background: transparent;
+  color:#E5E7EB;
+  font-size: .95rem;
+  min-width: 0;
+}
+
+.select{
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color:#E5E7EB;
+  padding: 10px 12px;
+  outline:none;
+}
+
+/* Lists */
+.list{
+  margin-top: 14px;
+  display:grid;
+  gap: 12px;
+}
+
+.item{
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  padding: 14px;
+  display:flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+.item-left{ min-width:0; }
+.item-title{
+  font-weight: 650;
+  font-size: 1.05rem;
+}
+.item-meta{
+  margin-top: 8px;
+  color: rgba(148,163,184,.9);
+  font-size: .9rem;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pill{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(148,163,184,.08);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+.pill.yellow{ border-color: rgba(250,204,21,.20); background: rgba(250,204,21,.10); color:#facc15; }
+.pill.blue{ border-color: rgba(59,130,246,.22); background: rgba(59,130,246,.10); color:#60a5fa; }
+.pill.green{ border-color: rgba(34,197,94,.20); background: rgba(34,197,94,.10); color: rgba(34,197,94,.95); }
+
+.item-right{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items:flex-end;
+  white-space: nowrap;
+}
+
+/* Modal */
+.co-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.co-backdrop.active{ display:flex; }
+
+.co-modal{
+  width: min(640px, calc(100vw - 24px));
+  background: rgba(2,6,23,.92);
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.55);
+  padding: 16px;
+}
+
+.co-modal-head{
+  display:flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.co-modal-title{
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.co-x{
+  width: 38px; height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.18);
+  background: rgba(2,6,23,.55);
+  color:#e5e7eb;
+  cursor:pointer;
+}
+
+.co-label{
+  display:block;
+  margin: 10px 0 6px;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(148,163,184,.9);
+  font-weight: 750;
+}
+.co-input{
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(148,163,184,.14);
+  background: rgba(2,6,23,.55);
+  color:#E5E7EB;
+  padding: 10px 12px;
+  outline:none;
+}
+.co-actions{
+  margin-top: 14px;
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .company-grid{ grid-template-columns: 1fr; }
+  .company-stats{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 820px){
+  .company-nav{ display:none; }
+  .company-stats{ grid-template-columns: 1fr; }
+}
+/* =========================
+   HOME: DESIGN EXAMPLES — tighter spacing + smaller heading
+   ========================= */
+#projects.design-examples.section-padding{
+  padding-top: 28px !important;
+  padding-bottom: 32px !important;
+}
+
+#projects.design-examples .section-header{
+  margin-bottom: 28px !important;   /* less gap before image */
+  padding: 0 24px !important;      /* slightly tighter sides */
+}
+
+#projects.design-examples .section-header h2{
+  font-size: 2.0rem !important;    /* smaller title */
+  font-weight: 650 !important;     /* less bold */
+  line-height: 1.15;
+  margin: 0 !important;
+}
+
+/* Make arrows align better and take less space */
+#projects.design-examples .carousel-arrows-section .carousel-arrow{
+  width: 42px;
+  height: 42px;
+}
+
+/* If you still see too much white space above title */
+#projects.design-examples{
+  margin-top: 0 !important;
 }

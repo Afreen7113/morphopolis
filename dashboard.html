@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morphopolis – Dashboard</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body class="app dashboard-page">
+
+    <!-- Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+        <div class="app-sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" class="logo-icon" />
+                <span>MORPHOPOLIS</span>
+            </a>
+            <button class="app-sidebar-close" id="app-sidebar-close" aria-label="Close sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        </div>
+
+        <nav class="app-nav">
+            <a href="dashboard.html" class="app-nav-item active" data-page="dashboard">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="new-project.html" class="app-nav-item" data-page="new">
+                <i class="fas fa-pen-nib"></i>
+                <span>New Project</span>
+            </a>
+            <a href="library.html" class="app-nav-item" data-page="library">
+                <i class="fas fa-folder-open"></i>
+                <span>Library</span>
+            </a>
+            <a href="settings.html" class="app-nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+        <!-- Top bar -->
+        <header class="app-topbar">
+    <div class="app-topbar-left">
+        <!-- Hamburger -->
+        <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Brand logo + text -->
+        <a href="dashboard.html" class="app-brand-logo">
+            <span class="app-brand-icon">
+                <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+            </span>
+            <span class="app-brand-text">MORPHOPOLIS</span>
+        </a>
+</div>
+        <!-- Search -->
+        <div class="app-topbar-center">
+        <div class="app-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="project-search" placeholder="Search projects, floor plans, or 3D models..." />
+            <span class="app-search-logo">
+                <img src="./img/search-logo.png" alt="" />
+            </span>
+        </div>
+    </div>
+
+            <div class="app-topbar-right">
+               <div class="app-user">
+    <div class="app-user-avatar" id="app-user-avatar">J</div>
+    <div class="app-user-info">
+        <span class="app-user-name" id="app-user-name">User Name</span>
+        <a href="settings.html" class="app-user-role app-account-link">ACCOUNT SETTINGS</a>
+    </div>
+</div>
+            </div>
+        </header>
+
+        <!-- Dashboard content -->
+        <main class="app-content">
+            <section class="app-hero">
+                <h1>Welcome back, <span class="accent" id="app-hero-name">Julian</span> 👋</h1>
+                <p>Manage your projects and generate new floor plans and 3D designs with AI.</p>
+
+                <div class="app-hero-actions">
+                    <div class="app-tabs" id="project-tabs">
+    <button class="app-tab active" data-filter="all">
+        All Projects (<span id="tab-count-all">0</span>)
+    </button>
+    <button class="app-tab" data-filter="in-progress">In Progress</button>
+    <button class="app-tab" data-filter="approved">Approved</button>
+    <button class="app-tab" data-filter="completed">Completed</button>
+    <button class="app-tab" data-filter="archive">Archive</button>
+</div>
+                    <button class="btn-yellow" onclick="window.location.href='new-project.html'">
+                        + Create New Project
+                    </button>
+                </div>
+            </section>
+
+            <!-- Project cards -->
+            <section class="app-projects-grid" id="project-grid">
+                <!-- Card 1 -->
+                <article class="project-card" data-title="Neo-Brutalist Villa" data-status="approved">
+                    <div class="project-card-image">
+                        <img src="./img/neo-brutalist.jpeg" alt="Neo-Brutalist Villa" />
+                        <span class="project-badge badge-green">APPROVED</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Neo-Brutalist Villa</h3>
+                        <p>Modern coastal residence exploring concrete forms and integrated landscaping.</p>
+                        <div class="project-card-footer">
+                            <span class="project-meta">MODIFIED 2H AGO</span>
+                            <button class="project-toggle">
+                                <span>+2</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="project-card" data-title="Skyline Pavilion"  data-status="in-progress">
+                    <div class="project-card-image">
+                        <img src="./img/skyline-pavilion.jpg" alt="Skyline Pavilion" />
+                        <span class="project-badge badge-yellow">3D READY</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Skyline Pavilion</h3>
+                        <p>Parametric roof structure for the Dubai 2025 Expo urban renewal competition.</p>
+                        <div class="project-card-footer">
+                            <span class="project-meta">MODIFIED YESTERDAY</span>
+                            <span class="project-meta-right">AI MODEL: V4.2</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="project-card" data-title="Urban Core Housing"  data-status="in-progress">
+                    <div class="project-card-image">
+                        <img src="./img/urban-core-housing.jpg" alt="Skyline Pavilion" />
+                        <span class="project-badge badge-grey">DRAFTING</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Urban Core Housing</h3>
+                        <p>High-density sustainable social housing complex featuring modular timber frames.</p>
+                        <div class="project-card-footer">
+                            <span class="project-meta">MODIFIED 3 DAYS AGO</span>
+                            <div class="project-progress">
+                                <div class="project-progress-bar" style="width:35%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="project-card" data-title="Azure Office Complex" data-status="approved">
+                    <div class="project-card-image">
+                        <img src="./img/azure-office-complex.avif" alt="Azure Office Complex" />
+                        <span class="project-badge badge-green">APPROVED</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Azure Office Complex</h3>
+                        <p>Lobby design for the Azure Tech HQ, focusing on biophilic elements and smart glass technology.</p>
+                        <div class="project-card-footer">
+                            <span class="project-meta">MODIFIED 1W AGO</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="project-card" data-title="Desert Retreat" data-status="in-progress">
+                    <div class="project-card-image">
+                        <img src="./img/desert-retreat.avif" alt="Desert Retreat" />
+                        <span class="project-badge badge-yellow">CONCEPT</span>
+                    </div>
+                    <div class="project-card-body">
+                        <h3>Desert Retreat</h3>
+                        <p>Subterranean residential project in Arizona utilizing thermal mass cooling techniques.</p>
+                        <div class="project-card-footer">
+                            <span class="project-meta">MODIFIED 2W AGO</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Create new project -->
+                <article class="project-card project-card-empty">
+                    <div class="project-card-empty-inner">
+                        <button class="project-empty-plus" onclick="window.location.href='new-project.html'">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <h3>Create a New Project</h3>
+                        <p>Describe your space and generate your first floor plan with AI.</p>
+                    </div>
+                </article>
+            </section>
+
+            <footer class="app-footer">
+    <span id="project-count-summary">Showing 0 projects</span>
+    <span>MORPHOPOLIS PLATFORM V2.8.0‑STABLE</span>
+</footer>
+        </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="company-page blog-page">
+  <header class="company-topbar">
+    <div class="company-topbar-left">
+      <button class="company-back" type="button" aria-label="Go back"
+        onclick="history.length>1?history.back():location.href='index.html'">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+
+      <a class="company-brand" href="index.html">
+        <span class="company-brand-badge"><img src="./img/logo-morphopolis.png" alt="logo"></span>
+        <span>Morphopolis</span>
+      </a>
+    </div>
+
+    <nav class="company-nav">
+      <a href="about.html">About</a>
+      <a href="careers.html">Careers</a>
+      <a class="active" href="blog.html">Blog</a>
+      <a href="support.html">Support</a>
+    </nav>
+
+    <div class="company-topbar-right">
+      <a class="company-btn primary" href="signup.html">Start Designing</a>
+    </div>
+  </header>
+
+  <main class="company-wrap">
+    <section class="company-hero">
+      <h1>Blog</h1>
+      <p>Workflows, tutorials, and platform updates for architects and designers.</p>
+    </section>
+
+    <div class="toolbar">
+      <div class="searchbox">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="blog-search" type="text" placeholder="Search posts..." />
+      </div>
+
+      <select class="select" id="blog-tag">
+        <option value="all">All tags</option>
+      </select>
+    </div>
+
+    <section class="list" id="blog-list"></section>
+
+    <!-- Read Modal -->
+    <div class="co-backdrop" id="post-backdrop">
+      <div class="co-modal" role="dialog" aria-modal="true" aria-label="Post">
+        <div class="co-modal-head">
+          <div>
+            <div class="co-modal-title" id="post-title">Post</div>
+            <div style="color:rgba(148,163,184,.9);margin-top:6px;" id="post-meta">—</div>
+          </div>
+          <button class="co-x" id="post-close" type="button" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="post-body" style="color:rgba(229,231,235,.92);line-height:1.65;"></div>
+
+        <div class="co-actions">
+          <button class="company-btn" id="post-close-2" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./js/company.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="company-page careers-page">
+  <header class="company-topbar">
+    <div class="company-topbar-left">
+      <button class="company-back" type="button" aria-label="Go back"
+        onclick="history.length>1?history.back():location.href='index.html'">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+
+      <a class="company-brand" href="index.html">
+        <span class="company-brand-badge"><img src="./img/logo-morphopolis.png" alt="logo"></span>
+        <span>Morphopolis</span>
+      </a>
+    </div>
+
+    <nav class="company-nav">
+      <a href="about.html">About</a>
+      <a class="active" href="careers.html">Careers</a>
+      <a href="blog.html">Blog</a>
+      <a href="support.html">Support</a>
+    </nav>
+
+    <div class="company-topbar-right">
+      <a class="company-btn" href="support.html">Contact</a>
+    </div>
+  </header>
+
+  <main class="company-wrap">
+    <section class="company-hero">
+      <h1>Careers</h1>
+      <p>Join Morphopolis to build professional AI workflows for designers worldwide.</p>
+    </section>
+
+    <div class="toolbar">
+      <div class="searchbox">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="jobs-search" type="text" placeholder="Search roles..." />
+      </div>
+
+      <select class="select" id="jobs-location">
+        <option value="all">All locations</option>
+      </select>
+
+      <select class="select" id="jobs-type">
+        <option value="all">All types</option>
+      </select>
+    </div>
+
+    <section class="list" id="jobs-list"></section>
+
+    <!-- Apply Modal -->
+    <div class="co-backdrop" id="apply-backdrop">
+      <div class="co-modal" role="dialog" aria-modal="true" aria-label="Apply">
+        <div class="co-modal-head">
+          <div>
+            <div class="co-modal-title" id="apply-title">Apply</div>
+            <div style="color:rgba(148,163,184,.9);margin-top:6px;" id="apply-sub">—</div>
+          </div>
+          <button class="co-x" id="apply-close" type="button" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <label class="co-label">Full name</label>
+        <input class="co-input" id="apply-name" type="text" placeholder="Your name" />
+
+        <label class="co-label">Email</label>
+        <input class="co-input" id="apply-email" type="email" placeholder="you@company.com" />
+
+        <label class="co-label">Message</label>
+        <textarea class="co-input" id="apply-msg" rows="4" placeholder="Tell us about your experience..."></textarea>
+
+        <div class="co-actions">
+          <button class="company-btn" id="apply-cancel" type="button">Cancel</button>
+          <button class="company-btn primary" id="apply-send" type="button">Submit Application</button>
+        </div>
+
+        <div style="margin-top:10px;color:rgba(148,163,184,.92);" id="apply-status"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./js/company.js"></script>
+</body>
+</html>

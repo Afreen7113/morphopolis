@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generating Floor Plan – Morphopolis</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body class="app engine-page">
+
+    <!-- Reuse sidebar & topbar like other app pages (optional, or keep bare) -->
+    <aside class="app-sidebar" id="app-sidebar">
+        <div class="app-sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="./img/logo-morphopolis.svg" alt="Morphopolis logo" class="logo-icon" />
+                <span>Morphopolis</span>
+            </a>
+        </div>
+        <nav class="app-nav">
+            <a href="dashboard.html" class="app-nav-item" data-page="dashboard">
+                <i class="fas fa-th-large"></i><span>Dashboard</span>
+            </a>
+            <a href="new-project.html" class="app-nav-item active" data-page="new">
+                <i class="fas fa-pen-nib"></i><span>New Project</span>
+            </a>
+            <a href="library.html" class="app-nav-item" data-page="library">
+                <i class="fas fa-folder-open"></i><span>Library</span>
+            </a>
+            <a href="settings.html" class="app-nav-item" data-page="settings">
+                <i class="fas fa-cog"></i><span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="app-main">
+        <header class="app-topbar">
+            <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="app-topbar-left">
+                <div class="app-brand">MORPHOPOLIS ENGINE</div>
+            </div>
+            <div class="app-topbar-right">
+<a href="notifications.html" class="app-icon-btn" aria-label="Notifications" title="Notifications">
+  <i class="far fa-bell"></i>
+</a>                <button class="app-icon-btn"><i class="fas fa-cog"></i></button>
+            </div>
+        </header>
+
+        <main class="app-content engine-content">
+    <div class="engine-center">
+        <div class="engine-circle" id="engine-circle">
+            <div class="engine-circle-inner">
+                <span id="engine-progress-value">0%</span>
+                <span class="engine-progress-label">ITERATING</span>
+            </div>
+        </div>
+
+        <h1>Architectural synthesis in progress…</h1>
+        <p>AI engine is iterating through 1,000+ spatial configurations for maximum efficiency and flow.</p>
+
+        <div class="engine-steps">
+            <div class="engine-step" data-step="1">
+                <span class="engine-step-icon done"><i class="fas fa-check"></i></span>
+                <div>
+                    <div class="engine-step-title">Analyzing requirements</div>
+                    <div class="engine-step-sub">Task complete</div>
+                </div>
+            </div>
+            <div class="engine-step" data-step="2">
+                <span class="engine-step-icon active"><i class="fas fa-sync-alt"></i></span>
+                <div>
+                    <div class="engine-step-title">Designing layout</div>
+                    <div class="engine-step-sub">In progress — optimizing spatial efficiency…</div>
+                </div>
+            </div>
+            <div class="engine-step" data-step="3">
+                <span class="engine-step-icon"><i class="far fa-circle"></i></span>
+                <div>
+                    <div class="engine-step-title">Finalizing plan</div>
+                    <div class="engine-step-sub">Pending</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

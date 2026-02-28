@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library – Morphopolis</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body class="app library-page">
+    <aside class="app-sidebar" id="app-sidebar">
+        <div class="app-sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="./img/logo-morphopolis.svg" alt="Morphopolis logo" class="logo-icon" />
+                <span>Morphopolis</span>
+            </a>
+        </div>
+        <nav class="app-nav">
+            <a href="dashboard.html" class="app-nav-item" data-page="dashboard">
+                <i class="fas fa-th-large"></i><span>Dashboard</span>
+            </a>
+            <a href="new-project.html" class="app-nav-item" data-page="new">
+                <i class="fas fa-pen-nib"></i><span>New Project</span>
+            </a>
+            <a href="library.html" class="app-nav-item active" data-page="library">
+                <i class="fas fa-folder-open"></i><span>Library</span>
+            </a>
+            <a href="settings.html" class="app-nav-item" data-page="settings">
+                <i class="fas fa-cog"></i><span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="app-main">
+        <!-- Top bar -->
+        <header class="app-topbar">
+    <div class="app-topbar-left">
+        <!-- Hamburger -->
+        <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Brand logo + text -->
+        <a href="dashboard.html" class="app-brand-logo">
+            <span class="app-brand-icon">
+                <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+            </span>
+            <span class="app-brand-text">MORPHOPOLIS</span>
+        </a>
+
+        <!-- Search -->
+        <div class="app-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="project-search" placeholder="Search projects, floor plans, or 3D models..." />
+            <span class="app-search-logo">
+                <img src="./img/logo-morphopolis.png" alt="" />
+            </span>
+        </div>
+    </div>
+
+            <div class="app-topbar-right">
+                <div class="app-user">
+    <div class="app-user-avatar" id="app-user-avatar">J</div>
+    <div class="app-user-info">
+        <span class="app-user-name" id="app-user-name">User Name</span>
+        <a href="settings.html" class="app-user-role app-account-link">ACCOUNT SETTINGS</a>
+    </div>
+</div>
+            </div>
+        </header>
+
+        <main class="app-content">
+            <h1>Project Library</h1>
+            <p>Here you’ll be able to browse all saved projects and generated floor plans.</p>
+        </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

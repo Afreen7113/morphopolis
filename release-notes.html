@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release Notes – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app release-page">
+  <header class="support-topbar">
+    <div class="support-topbar-left">
+      <div class="support-brand">
+        <div class="support-brand-badge">
+          <img src="./img/logo-morphopolis.png" alt="Morphopolis logo">
+        </div>
+        <div class="support-brand-text">Morphopolis</div>
+      </div>
+    </div>
+
+    <nav class="support-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="library.html">Library</a>
+      <a href="support.html">Support</a>
+      <a class="active" href="release-notes.html">Release Notes</a>
+    </nav>
+
+    <div class="support-icons">
+<a class="support-icon-btn" href="notifications.html" aria-label="Notifications" title="Notifications">
+  <i class="far fa-bell"></i>
+</a>      <a class="support-icon-btn" href="settings.html" aria-label="Settings"><i class="fas fa-cog"></i></a>
+      <div class="support-mini-avatar">J</div>
+    </div>
+  </header>
+
+  <main class="pro-hub">
+    <div class="pro-hub-head">
+      <div>
+        <h1>Release Notes</h1>
+        <p>Product updates, improvements, and fixes across the platform.</p>
+      </div>
+
+      <div class="pro-hub-actions">
+        <div class="pro-hub-search">
+          <i class="fas fa-search"></i>
+          <input id="release-search" type="text" placeholder="Search releases..." />
+        </div>
+      </div>
+    </div>
+
+    <section class="pro-panel">
+      <div class="pro-panel-head">
+        <div class="pro-panel-title">Changelog</div>
+        <div class="pro-panel-sub" id="release-count">0 releases</div>
+      </div>
+
+      <div class="release-list" id="release-list"></div>
+    </section>
+
+    <div class="pro-toast-wrap" id="pro-toast-wrap"></div>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

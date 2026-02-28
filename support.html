@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – Morphopolis</title>
+  <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="app support-page">
+
+  <header class="support-topbar">
+    <div class="support-topbar-left">
+      <div class="support-brand">
+<div class="support-brand-badge">
+  <img src="./img/logo-morphopolis.png" alt="Morphopolis logo">
+</div>        
+<div class="support-brand-text">Morphopolis</div>
+      </div>
+    </div>
+
+    <nav class="support-nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.html">Projects</a>
+      <a href="library.html">Library</a>
+      <a class="active" href="support.html">Support</a>
+    </nav>
+
+    <div class="support-icons">
+<a class="support-icon-btn" href="notifications.html" aria-label="Notifications" title="Notifications">
+  <i class="far fa-bell"></i>
+</a>      <a class="support-icon-btn" href="settings.html" aria-label="Settings"><i class="fas fa-cog"></i></a>
+      <div class="support-mini-avatar">J</div>
+    </div>
+  </header>
+
+  <main class="support-content">
+    <h1>How can we help you design today?</h1>
+
+    <div class="support-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search documentation, tutorials, and BIM guides..." />
+      <span class="support-ai">AI POWERED</span>
+    </div>
+
+    <div class="support-popular">
+      <span>Popular:</span>
+      <a href="#">Exporting to IFC</a>,
+      <a href="#">Neural Rendering</a>,
+      <a href="#">V‑Ray Bridge</a>
+    </div>
+
+    <section class="support-section">
+  <div class="support-section-head">
+    <h2>Video Tutorials</h2>
+
+    <div class="support-head-actions">
+      <button class="support-small-btn" type="button" id="add-tutorial-btn">+ Add tutorial</button>
+      <button class="support-small-btn ghost" type="button" id="reset-tutorials-btn">Reset</button>
+    </div>
+  </div>
+
+  <!-- JS will render tutorials here -->
+  <div class="support-videos" id="support-videos"></div>
+</section>
+
+    <section class="support-grid" id="support-grid">
+  <!-- LEFT -->
+  <div class="support-faq">
+    <h2>Frequently Asked Questions</h2>
+    <div id="faq-list"></div>
+  </div>
+
+  <!-- RIGHT -->
+  <aside class="support-ticket">
+  <h3>Contact Support</h3>
+
+  <label>Subject</label>
+  <input id="support-subject" type="text" placeholder="Technical issue / Billing / Feedback" />
+
+  <label>Project Type</label>
+  <select id="support-project-type">
+    <option>Residential</option>
+    <option>Commercial</option>
+    <option>Mixed Use</option>
+  </select>
+
+  <label>Description</label>
+  <textarea id="support-description" rows="5" placeholder="Describe your issue or question..."></textarea>
+
+  <!-- Attachments -->
+  <div class="support-drop" id="support-attach-drop" role="button" tabindex="0" aria-label="Attach files">
+    <i class="fa-regular fa-file"></i>
+    <span>Attach .morph / .ifc / .pdf / .docx / images</span>
+  </div>
+
+  <input
+    type="file"
+    id="support-attach-input"
+    hidden
+    multiple
+    accept=".morph,.ifc,.pdf,.doc,.docx,.txt,.png,.jpg,.jpeg"
+  />
+
+  <div class="support-attach-list" id="support-attach-list"></div>
+
+  <button class="support-submit" type="button" id="support-submit-ticket">
+    <i class="fa-solid fa-play"></i>
+    SUBMIT TICKET
+  </button>
+
+  <div class="support-ticket-status" id="support-ticket-status"></div>
+</aside>
+</section>
+
+    <footer class="support-footer">
+  <a href="community.html">Community Forum</a>
+  <a href="status.html">System Status</a>
+  <a href="release-notes.html">Release Notes</a>
+
+  <div class="support-footnote">
+    © 2026 MORPHOPOLIS AI ARCHITECTURAL SYSTEMS. ALL RIGHTS RESERVED.
+  </div>
+</footer>
+    <!-- Add Tutorial Modal -->
+<div class="support-modal-backdrop" id="tutorial-modal">
+  <div class="support-modal">
+    <div class="support-modal-head">
+      <h3>Add Video Tutorial</h3>
+      <button class="support-x" type="button" id="tutorial-modal-close">&times;</button>
+    </div>
+
+    <div class="support-modal-body">
+      <label>Title</label>
+      <input id="tutorial-title" type="text" placeholder="e.g., BIM Integration Workflow" />
+
+      <label>Video URL (YouTube/Vimeo/MP4 link)</label>
+      <input id="tutorial-url" type="text" placeholder="https://..." />
+
+      <label>Thumbnail</label>
+
+<div class="support-thumb-row">
+  <input id="tutorial-thumb" type="text" placeholder="Auto from video URL (YouTube) or paste image URL..." />
+  <button class="support-small-btn ghost" type="button" id="thumb-upload-btn">Upload</button>
+</div>
+
+<div class="support-thumb-preview" id="thumb-preview-box">
+  <img id="thumb-preview-img" alt="Thumbnail preview" />
+  <div class="support-thumb-hint" id="thumb-preview-hint">Auto thumbnail will be used if supported.</div>
+</div>
+
+<input type="file" id="tutorial-thumb-file" accept="image/*" hidden />
+      <label>Duration (optional)</label>
+      <input id="tutorial-duration" type="text" placeholder="e.g., 12:45" />
+    </div>
+
+    <div class="support-modal-actions">
+      <button class="support-small-btn ghost" type="button" id="tutorial-cancel">Cancel</button>
+      <button class="support-small-btn" type="button" id="tutorial-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Player Modal -->
+<div class="support-modal-backdrop" id="player-modal">
+  <div class="support-modal support-modal-wide">
+    <div class="support-modal-head">
+      <h3 id="player-title">Tutorial</h3>
+      <button class="support-x" type="button" id="player-close">&times;</button>
+    </div>
+    <div class="support-modal-body" id="player-body"></div>
+  </div>
+</div>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>

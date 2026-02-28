@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Project – Morphopolis</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body class="app new-project-page">
+
+    <!-- Sidebar (same as dashboard) -->
+    <aside class="app-sidebar" id="app-sidebar">
+        <div class="app-sidebar-header">
+            <a href="index.html" class="logo">
+                <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" class="logo-icon" />
+                <span>MORPHOPOLIS</span>
+            </a>
+            <button class="app-sidebar-close" id="app-sidebar-close" aria-label="Close sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="app-nav">
+            <a href="dashboard.html" class="app-nav-item" data-page="dashboard">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="new-project.html" class="app-nav-item active" data-page="new">
+                <i class="fas fa-pen-nib"></i>
+                <span>New Project</span>
+            </a>
+            <a href="library.html" class="app-nav-item" data-page="library">
+                <i class="fas fa-folder-open"></i>
+                <span>Library</span>
+            </a>
+            <a href="settings.html" class="app-nav-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </aside>
+
+    <div class="app-main">
+        <!-- Top bar (same structure as dashboard) -->
+<header class="app-topbar app-topbar-new-project">
+            <!-- LEFT: burger + logo -->
+            <div class="app-topbar-left">
+                <button class="app-hamburger" id="app-hamburger" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="dashboard.html" class="app-brand-logo">
+                    <span class="app-brand-icon">
+                        <img src="./img/logo-morphopolis.png" alt="Morphopolis logo" />
+                    </span>
+                    <span class="app-brand-text">MORPHOPOLIS</span>
+                </a>
+            </div>
+
+            <!-- CENTER: search (same element as dashboard so filtering works if needed) -->
+            <div class="app-topbar-center">
+                <div class="app-search">
+                    <i class="fas fa-search"></i>
+                    <input
+                        type="text"
+                        id="project-search"
+                        placeholder="Search projects, floor plans, or 3D models..." />
+                    <span class="app-search-logo">
+                        <img src="./img/logo-morphopolis.png" alt="" />
+                    </span>
+                </div>
+            </div>
+
+            <!-- RIGHT: user -->
+             <nav class="app-topbar-nav">
+        <a href="dashboard.html">My Projects</a>
+        <a href="team.html">Team</a>
+<a href="billing.html">Billing</a>
+        <button type="button" class="app-topbar-account">Account</button>
+    </nav>
+</header>
+
+        <!-- NEW PROJECT MAIN LAYOUT -->
+        <main class="app-content new-project-content np-page">
+  <section class="new-project-header np-header">
+    <div class="breadcrumbs np-breadcrumbs">Projects / New Project Query</div>
+
+    <h1 class="np-title">Describe your architectural<br />vision</h1>
+
+    <p class="np-subtitle">
+      Use natural language to define spatial logic, materiality,<br />
+      and atmosphere.
+    </p>
+  </section>
+
+  <section class="new-project-layout np-grid">
+    <!-- LEFT: Prompt -->
+    <div class="prompt-panel np-card np-prompt">
+      <div class="np-card-head">
+        <span class="np-engine-dot">
+          <i class="fas fa-bolt"></i>
+        </span>
+        <span class="np-engine-text">AI PROMPT ENGINE V4.2</span>
+      </div>
+
+      <div class="np-card-divider"></div>
+
+      <textarea
+        id="project-prompt"
+        class="prompt-textarea np-textarea"
+        placeholder="A three-story brutalist home with an interior courtyard and floor-to-ceiling glass that overlooks a rugged coastline. Use raw concrete textures and warm cedar wood accents..."></textarea>
+        <div class="prompt-attachments" id="prompt-attachments"></div>
+      <div class="np-prompt-footer">
+        <div class="np-suggestions">
+          <span class="np-suggestions-label">Try adding:</span>
+          <button type="button" class="prompt-chip np-chip" data-chip="Passive solar cooling">Passive solar cooling</button>
+          <button type="button" class="prompt-chip np-chip" data-chip="Cantilevered terraces">Cantilevered terraces</button>
+          <button type="button" class="prompt-chip np-chip" data-chip="Zen garden">Zen garden</button>
+        </div>
+
+        <div class="np-footer-row">
+          <div class="np-footer-icons">
+            <button type="button" class="prompt-icon-btn np-icon" data-action="image" title="Attach reference image">
+              <i class="far fa-image"></i>
+            </button>
+            <button type="button" class="prompt-icon-btn np-icon" data-action="mic" title="Voice input (coming soon)">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button type="button" class="prompt-icon-btn np-icon" data-action="file" title="Attach brief (coming soon)">
+              <i class="fas fa-paperclip"></i>
+            </button>
+          </div>
+
+          <div class="np-footer-actions">
+            <button type="button" class="btn-dark-small np-btn np-btn-ghost" id="save-draft-btn">Save Draft</button>
+            <button type="button" class="btn-yellow np-btn np-btn-primary" id="generate-floorplan-btn">
+              Generate Floor Plan <i class="fas fa-bolt"></i>
+            </button>
+            <div class="draft-status" id="draft-status">No draft saved yet</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Parameters -->
+    <aside class="param-panel np-card np-params">
+      <div class="np-params-title">
+        <i class="fas fa-sliders-h"></i>
+        <span>PARAMETERS</span>
+      </div>
+
+      <div class="np-params-divider"></div>
+
+      <!-- Square Footage -->
+      <div class="np-field">
+        <label class="np-label" for="param-square">SQUARE FOOTAGE</label>
+        <div class="np-input np-input-accent">
+          <input id="param-square" type="number" value="2500" />
+          <span class="np-unit">SQFT</span>
+        </div>
+      </div>
+
+      <!-- Bedrooms/Bathrooms -->
+      <div class="np-row-2">
+        <div class="np-field">
+          <label class="np-label" for="param-bed">BEDROOMS</label>
+          <div class="np-input np-input-select">
+            <input id="param-bed" type="number" value="3" />
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+
+        <div class="np-field">
+          <label class="np-label" for="param-bath">BATHROOMS</label>
+          <div class="np-input np-input-select">
+            <input id="param-bath" type="number" step="0.5" value="2.5" />
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="np-params-divider"></div>
+
+      <!-- Style Profile -->
+      <div class="np-field">
+        <div class="np-label">STYLE PROFILE</div>
+        <div class="np-tags">
+          <button type="button" class="style-tag np-tag active">BRUTALIST</button>
+          <button type="button" class="style-tag np-tag">MODERNIST</button>
+          <button type="button" class="style-tag np-tag">SUSTAINABLE</button>
+          <button type="button" class="style-tag np-tag">INDUSTRIAL</button>
+          <button type="button" class="np-tag np-tag-outline">+ ADD STYLE</button>
+        </div>
+      </div>
+
+      <div class="np-params-divider"></div>
+
+      <!-- Site Context -->
+      <div class="np-field">
+        <div class="np-label">SITE CONTEXT</div>
+
+        <div class="np-site-row">
+          <span class="np-site-left">Topography</span>
+          <button type="button" class="param-topography-pill np-pill is-active">Steep Slope</button>
+        </div>
+
+        <button type="button" class="np-dropzone" id="param-add-image" aria-label="Add site image">
+          <i class="far fa-map"></i>
+        </button>
+
+        <div class="np-info">
+          <i class="fas fa-info-circle"></i>
+          <span>AI will prioritize spatial flow and site orientation based on the rugged coastline description.</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
